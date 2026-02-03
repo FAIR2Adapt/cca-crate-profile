@@ -73,369 +73,369 @@ RO-Crates that are conforming to (or intending to conform to) cca profile **SHOU
 ---
 
 ### MVP
+This entity defines a Minimal Viable Product (MVP) along with the related metadata fields enabling its findability. 
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **MVP** | may |  | Defines the **MVP** entity in the metadata model. |
-| Variable | should | schema:variableMeasured | Variables used in the models to produce the output |
-| Depth level | should | schema:depth | Depth level of the analysis |
-| Time range | should | schema:temporalCoverage | Time range of the data icluded in the output |
-| Spatial extend (DGGS id/bbox) | should | schema:spatialCoverage | Spatial extend of the data icluded in the output |
-| Scenario/run id | should | cca:scenarioId | Scenario/run id of the model output |
-| Grid resolution | should | geodcat:spatialResolutionAsText | Grid resolution of the model output |
-| Licence | should | schema:license | License of the output |
-| Version DOI | should | schema:identifier | DOI of the output |
-| Provenance URL | should | dct:provenance | Provenance URL of the model output |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **MVP** | class | should | schema:Product | Defines the MVP entity in the metadata model |
+| variable | object property | should | schema:variableMeasured | variables used in the models to produce the output |
+| depth level | data property | should | schema:depth | Depth level of the analysis |
+| time range | data property | should | schema:temporalCoverage | Time range of the data icluded in the output |
+| spatial extent | object property | should | schema:spatialCoverage | Spatial extent of the data icluded in the output (DGGS id/bbox) |
+| scenario/run id | data property | should | cca:scenarioId | Scenario/run id of the model output |
+| grid resolution | data property | should | geodcat:spatialResolutionAsText | Grid resolution of the model output |
+| licence | object property | should | schema:license | License of the output |
+| version DOI | data property | should | schema:identifier | DOI of the output |
+| provenance URL | object property | should | dct:provenance | Provenance URL of the model output |
 
 ### Variable
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Variable** | may |  | Defines the **Variable** entity in the metadata model. |
-| Name | may |  | Captures the literal value for **Name** (e.g., number, text, date). |
-| URL | may |  | Captures the literal value for **URL** (e.g., number, text, date). |
+This entity defines a variable or observed property represented according to the I-ADOPT model, along with the related metadata fields enabling its findability. 
 
-### I-ADOPT variable
-
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Variable** | may | iadopt:Variable | Defines the **Variable** entity in the metadata model. |
-| Name | may | schema:name | Captures the literal value for **Name** (e.g., number, text, date). |
-| URL | may | schema:url | Captures the literal value for **URL** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Variable** | class | may | iadopt:Variable | Defines the a variable or observed property entity represented according to the I-ADOPT model in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name (e.g., number, text, date) |
+| url | data property | may | schema:url | Captures the literal value for URL (e.g., number, text, date) |
 
 ### Project-Level Metadata Fields
 
-#### Project
+This section defines a conceptual entity representing a related project along with the related metadata fields enabling its findability. 
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Project** | may | schema:Project | Defines the **Project** entity in the metadata model. |
-| Data Management Plan Reference | may | cca:dmp_id | Identifies data managers for each type of data |
-| Expected Deliverables | may | cca:expectedDeliverable | Lists planned outputs with timeline codes |
-| Reused Data | may | cca:reusedData | Identifies external data sources |
-| General WP Program | may | cca:generalWPProgram | Overview of data collection activities |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Project** | class | may | schema:Project | Defines the Project entity in the metadata model. |
+| data management plan (DMP) reference | object property | may | cca:dmp_id | Identifies data managers for each type of data |
+| expected deliverables | data property | may | cca:expectedDeliverable | Lists planned outputs with timeline codes |
+| reused data | object property | may | cca:reusedData | Identifies external data sources |
+| general WP program | data property | may | cca:generalWPProgram | Overview of data collection activities |
 
 ### Network Metadata Structure
 
+This section defines the conceptual entities representing a related network along with the related metadata fields enabling its findability. 
+
 #### Network
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Network** | may | cca:Network | Defines the **Network** entity in the metadata model. |
-| Network Manager | may | cca:networkManager | Defines a relationship for **Network Manager** between metadata entities. |
-| Name | should | schema:name | Network/SNO name |
-| Data Manager | may | citedcat:dataManager geodcat:custodian | Data responsible persons |
-| Scientific Coordination | may | geodcat:principalInvestigator | Scientific coordination lead |
-| Partners | may | schema:member | Partner organizations |
-| Labelling | may | rdfs:label | Labeling year (first and last) |
-| ILICO Integration Year | may | cca:IlicoIntegrationYear | ILICO integration year |
-| Scientific Issues | may | cca:scientificIssues | Research questions and objectives |
-| Grants | may | schema:funding or schema:funder (if grant is not needed/known) | Funding organizations |
-| Network Costs | may | cca:averageNetworkCost | Average infrastructure costs |
-| Data Costs | may | cca:averageDataCost | Average data costs |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Network** | class | may | cca:Network | Defines the Network contextual entity in the metadata model |
+| has network | object property | may | cca:hasNetwork | Defines a relationship with a Network contextual entity |
+| network manager | object property | may | cca:networkManager | Defines a relationship for Network Manager between metadata entities |
+| name | data property | should | schema:name | Network/SNO name |
+| data manager | object property| may | citedcat:dataManager geodcat:custodian | Data responsible persons |
+| scientific coordination | object property | may | geodcat:principalInvestigator | Scientific coordination lead |
+| partners | object property | may | schema:member | Partner organizations |
+| labelling | data property | may | rdfs:label | Labeling year (first and last) |
+| ILICO integration year | data property | may | cca:IlicoIntegrationYear | ILICO integration year |
+| scientific issues | data property | may | cca:scientificIssues | Research questions and objectives |
+| grants | object property | may | schema:funding or schema:funder (if grant is not needed/known) | Funding organizations |
+| network costs | data property | may | cca:averageNetworkCost | Average infrastructure costs |
+| data costs | data property | may | cca:averageDataCost | Average data costs |
 
 #### Dataset
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Dataset** | may |  | Defines the **Dataset** entity in the metadata model. |
-| Data Creation/Collection | may | schema:dataset | Defines a relationship for **Data Creation/Collection** between metadata entities. |
-| Data Creation Manager | should | citedcat:dataCollector | Data creation/collection responsible |
-| Type | may | dct:type | Type of data (collected/produced) |
-| Origin | should | dct:source | Data source type (observations/experimental/simulations/derived) |
-| Nature | should | cca:dataNature | Data nature (textual/numerical/audiovisual/modeled/discipline-specific) |
-| Stability | may | cca:stability | Data stability (fixed/growing/revisable) |
-| Scale | should | schema:spatialCoverage | Geographic extent of network action |
-| Variables | may | schema:variableMeasured | Parameter names and units |
-| Acquisition Method | may | cca:acquisitionMethod | Collection/creation methods |
-| Acquisition Frequency | may | cca:acquisitionFrequency | Average acquisition frequency |
-| Survey Automation | may | cca:surveyAutomation | Automatic/manual collection |
-| Standard Application | may | dct:conformsTo | Standards/norms applied to data |
-| Sensitivity | should | dpv:hasSensitivityLevel | Data sensitivity type |
-| Delay | may | cca:dataRecoveryDelay | Average data recovery delays |
-| Volume | may | dcat:byteSize | Average annual data volume |
-| Validation | may | cca:validationApproach | Data validation approach |
-| Qualification | may | cca:qualityApproach | Data quality approach |
-| Format | may | dct:format | Data format used |
-| Site Number | may | cca:stationsStudied | Number of stations studied |
-| Dataset Number | may | cca:datasetNumber | Number of datasets |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Dataset** | class | may |  schema:Dataset | Defines the Dataset entity in the metadata model. |
+| data creation/collection | object property | may | schema:dataset | Defines a relationship for Data Creation/Collection between metadata entities. |
+| data creation manager | object property | should | citedcat:dataCollector | Data creation/collection responsible |
+| type | data property | may | dct:type | Type of data (collected/produced) |
+| origin | data property | should | dct:source | Data source type (observations/experimental/simulations/derived) |
+| nature | data property | should | cca:dataNature | Data nature (textual/numerical/audiovisual/modeled/discipline-specific) |
+| stability | data property | may | cca:stability | Data stability (fixed/growing/revisable) |
+| scale | data property | should | schema:spatialCoverage | Geographic extent of network action |
+| variables | object property | may | schema:variableMeasured | Parameter names and units |
+| acquisition method | data property | may | cca:acquisitionMethod | Collection/creation methods |
+| acquisition frequency | data property | may | cca:acquisitionFrequency | Average acquisition frequency |
+| survey automation | data property | may | cca:surveyAutomation | Automatic/manual collection |
+| standard application | object property | may | dct:conformsTo | Standards/norms applied to data |
+| sensitivity | object property | should | dpv:hasSensitivityLevel | Data sensitivity type |
+| delay | data property | may | cca:dataRecoveryDelay | Average data recovery delays |
+| volume | data property | may | dcat:byteSize | Average annual data volume |
+| validation |data property |  may | cca:validationApproach | Data validation approach |
+| qualification | data property | may | cca:qualityApproach | Data quality approach |
+| format | data property | may | dct:format | Data format used |
+| site number | data property | may | cca:stationsStudied | Number of stations studied |
+| dataset number | data property | may | cca:datasetNumber | Number of datasets |
 
 #### Processing
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Processing** | may |  | Defines the **Processing** entity in the metadata model. |
-| Processing Manager | should | cca:processingManager | Processing/Analysis responsible |
-| Processing | may | dpv:hasProcessing | Data processing beyond validation |
-| Processing Automation | may | cca:processingAutomation | Automatic/manual processing |
-| Processing Method | may | cca:processingMethod | Processing methods/tools/protocols |
-| Processing Delay | may | schema:processingTime | Average processing time |
-| Pre-processing Level | may | cca:preProcessingLevel | Data levels before processing |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Processing** | class | may | dpv:Processing | Defines the Processing contextual entity in the metadata model. Data processing beyond validation |
+| has processing | object property | may | dpv:hasProcessing | Defines the relation to the Processing contextual entity in the metadata model |
+| processing manager | object property | should | cca:processingManager | Processing/Analysis responsible |
+| processing automation | data property | may | cca:processingAutomation | Automatic/manual processing |
+| processing method | data property | may | cca:processingMethod | Processing methods/tools/protocols |
+| processing delay | data property | may | schema:processingTime | Average processing time |
+| pre-processing level | data property | may | cca:preProcessingLevel | Data levels before processing |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
-#### Analysis
+#### Analyse
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Analysis** | may |  | Defines the **Analysis** entity in the metadata model. |
-| Analysis Automation | may | cca:analysisAutomation | Automatic/manual analysis |
-| Analysis Method | may | cca:analysisMethod | Analysis methods/tools/protocols |
-| Analysis Delay | may | schema:processingTime | Average analysis time |
-| Pre-analysis Level | may | cca:preAnalysisLevel | Data levels before analysis |
-| Post-analysis Level | may | cca:postAnalysisLevel | Data levels after analysis |
-| Products | may | cca:hasProductNames | Product names |
-| Data Reuse | may | cca:reuseData | Reuse of existing data |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Analysis** | class | may | dpv:Analyse | Defines the Analyse contextual entity in the metadata model. |
+| has analysis | object property | may | dpv:hasProcessing | Defines the relationship with the Analyze contextual entity in the metadata model |
+| analysis automation | data property | may | cca:analysisAutomation | Automatic/manual analysis |
+| analysis method | data property | may | cca:analysisMethod | Analysis methods/tools/protocols |
+| analysis delay | data property | may | schema:processingTime | Average analysis time |
+| pre-analysis level | data property | may | cca:preAnalysisLevel | Data levels before analysis |
+| post-analysis level | data property | may | cca:postAnalysisLevel | Data levels after analysis |
+| products | data property | may | cca:hasProductNames | Product names |
+| data reuse | data property | may | cca:reuseData | Reuse of existing data |
 
 #### Store
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Store** | may |  | Defines the **Store** entity in the metadata model. |
-| Conservation Manager | should | cca:conservationManager | Storage/Archiving responsible |
-| Storage Archiving | may | dct:type | Storage vs archiving distinction |
-| Procedure | should | schema:procedure | Storage/archiving procedure |
-| Data Selection | should | cca:dataSelectionMethod | Data selection method |
-| Convention | should | cca:fileNamingConvention | File naming convention |
-| Support | should | cca:supportType | Storage/archiving support type |
-| Location | should | schema:location | Storage/archiving location |
-| Conservation Delay | should | schema:duration | Storage/archiving duration |
-| Retrieval | may | dpv:hasOrganisationalMeasure | Data recovery methods |
-| Securing | may | dpv:hasTechnicalMeasure | Data access security methods |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Store** | class | may | dpv:Store | Defines the Store contextual entity in the metadata model |
+| has conservation | object property | should | dpv:hasProcessing | Defines relationship with the conservation (Store) contextual entity|
+| conservation manager | object property | should | cca:conservationManager | Storage/Archiving responsible |
+| storage archiving | data property | may | dct:type | Storage vs archiving distinction |
+| procedure | data property | should | schema:procedure | Storage/archiving procedure |
+| data selection | data property | should | cca:dataSelectionMethod | Data selection method |
+| convention | data property | should | cca:fileNamingConvention | File naming convention |
+| support | data property | should | cca:supportType | Storage/archiving support type |
+| location | object property | should | schema:location | Storage/archiving location |
+| conservation delay | data property | should | schema:duration | Storage/archiving duration |
+| retrieval | object property | may | dpv:hasOrganisationalMeasure | Data recovery methods |
+| securing | object property | may | dpv:hasTechnicalMeasure | Data access security methods |
 
 #### Access
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Access** | may |  | Defines the **Access** entity in the metadata model. |
-| Access Manager | should | cca:dataAccessManager | Data access responsible |
-| Dissemination Principle | should | dct:accessRights | Dissemination principle |
-| Mechanism | should | schema:procedure | Access procedure to visualization tools |
-| Dissemination Delay | may | schema:processingTime | Average dissemination time |
-| Embargo Period | should | fabio:hasEmbargoDuration | Data embargo period |
-| Database | may | cca:databaseAvailability | Database availability |
-| Carrier Organisation | may | cca:repositoryName<br>cca:organisationName | Repository and organization name |
-| Data Model | may | dct:conformsTo | Data schema/model used |
-| Management System | may | dcat:accessService | Database management system |
-| History | may | adms:versionNotes | Version history visualization |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Access** | class | may | dpv:Access | Defines the Access contextual entity in the metadata model |
+| has access | object property | may | dpv:hasProcessing | Defines the relationship with the Access contextual entity |
+| access manager | object property | should | cca:dataAccessManager | Data access responsible |
+| dissemination principle | object property | should | dct:accessRights | Dissemination principle |
+| mechanism | data property | should | schema:procedure | Access procedure to visualization tools |
+| dissemination delay | data property | may | schema:processingTime | Average dissemination time |
+| embargo period | data property | should | fabio:hasEmbargoDuration | Data embargo period |
+| database | data property | may | cca:databaseAvailability | Database availability |
+| carrier organisation | data property | may | cca:repositoryName<br>cca:organisationName | Repository and organization name |
+| data model | objetct property | may | dct:conformsTo | Data schema/model used |
+| management system | object property | may | dcat:accessService | Database management system |
+| history | data property | may | adms:versionNotes | Version history visualization |
 
 #### Disseminate
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Disseminate** | may |  | Defines the **Disseminate** entity in the metadata model. |
-| Dissemination Manager | should | cca:dataDissimiationManager | Dissemination/Reuse responsible |
-| Identifier | may | schema:identifier | Data identifier (ARK, DOI, Handle, etc.) |
-| Integrity | may | cca:integrityMethods | Data integrity methods |
-| Traceability | may | cca:traceabilityMethods | Data traceability methods |
-| License | may | schema:license | License type (BY, ND, NC, SA) |
-| Publication | should | cca:relatedPublications | Average number of associated publications |
-| Metadata | should | foaf:isPrimaryTopicOf | Associated metadata |
-| Intelligibility | may | schema:documentation | Documents for data intelligibility |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Disseminate** | class | may | dpv:Disseminate | Defines the Disseminate contextual entity in the metadata model |
+| has dissemination/reuse | may | dpv:hasProcessing | Defines the relationship with the Dissemitate contextual entity |
+| dissemination manager | object property | should | cca:dataDissimiationManager | Dissemination/Reuse responsible |
+| identifier | data property | may | schema:identifier | Data identifier (ARK, DOI, Handle, etc.) |
+| integrity | data property | may | cca:integrityMethods | Data integrity methods |
+| traceability | data property | may | cca:traceabilityMethods | Data traceability methods |
+| license | object property | may | schema:license | License type (BY, ND, NC, SA) |
+| publication | data property | should | cca:relatedPublications | Average number of associated publications |
+| metadata | object property | should | foaf:isPrimaryTopicOf | Associated metadata |
+| intelligibility | object property | may | schema:documentation | Documents for data intelligibility |
 
 ### Campaign Metadata Structure
 
 #### Campaign
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Campaign** | may |  | Defines the **Campaign** entity in the metadata model. |
-| Campaign | may | schema:identifier | Campaign with DOI |
-| Equipment | may | cca:equipmentUsed | For example: glider, mooring, mastodon, CTD, coring |
-| Deployment Date | may | schema:temporalCoverage | Start and end dates |
-| Geographic Coverage | may | schema:spatialCoverage | Position of sampling/measurements |
-| Sensors | may | sosa:madeBySensor | For example: salinity, temperature, turbidity, oxygen |
-| Measurement Level | may | sosa:usedProcedure | In water column, at surface, at bottom |
-| Acquisition Frequency | may | schema:frequency | Measurement frequency |
-| Parameters | may | sosa:observedProperty | For example: conductivity |
-| Unit | may | schema:unitCode | With possible justification for unit choice if subject to discussion |
-| Data Type | may | schema:contentType | For example: numerical (databases, spreadsheets), textual, image, audio, video |
-| Format / Access Software | may | dct:format | File extension (pdf, xls, doc, txt, rdf) |
-| Volumes | may | dcat:size | Storage space required, quantities of objects, files, rows, columns |
-| Metadata | may | dct:conformsTo | Metadata standards used (DDI, TEI, EML, MARC, CMDI) |
-| Format | may | cca:metadataFormat | Metadata format |
-| Quality Control Measures | may | dcso:dataQualityAssurance | Precision, sensitivity, data quality measurement protocol |
-| Storage Mode | may | dpv:hasTechnicalOrganisationalMeasure | Repository, access and security (who has access, where, backup) |
-| DOI | may | bibo:doi | Associated datasets |
-| Equipment Failure | may | cca:equipmentFailure | Justifications (sensor failures, etc.) |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Campaign** | class | may | cca:Campaign | Defines the Campaign contextual entity in the metadata model |
+| has campaign | object property | may | cca:hasCampaign | Defines the relationship with the Campaign contextual entity  |
+| identifier | data property | may | schema:identifier | Campaign with DOI |
+| equipment | data property | may | cca:equipmentUsed | For example: glider, mooring, mastodon, CTD, coring |
+| deployment date | data property | may | schema:temporalCoverage | Start and end dates |
+| geographic coverage | object property | may | schema:spatialCoverage | Position of sampling/measurements |
+| sensors | object property | may | sosa:madeBySensor | For example: salinity, temperature, turbidity, oxygen |
+| measurement level | object property | may | sosa:usedProcedure | In water column, at surface, at bottom |
+| acquisition frequency | data property | may | schema:frequency | Measurement frequency |
+| parameters | object property | may | sosa:observedProperty | For example: conductivity |
+| unit | data property | may | schema:unitCode | With possible justification for unit choice if subject to discussion |
+| data type | data property | may | schema:contentType | For example: numerical (databases, spreadsheets), textual, image, audio, video |
+| format / Access Software | data property | may | dct:format | File extension (pdf, xls, doc, txt, rdf) |
+| volumes | data property | may | dcat:size | Storage space required, quantities of objects, files, rows, columns |
+| metadata | object property | may | dct:conformsTo | Metadata standards used (DDI, TEI, EML, MARC, CMDI) |
+| format | data property | may | cca:metadataFormat | Metadata format |
+| quality control measures | data property | may | dcso:dataQualityAssurance | Precision, sensitivity, data quality measurement protocol |
+| storage mode | data property | may | dpv:hasTechnicalOrganisationalMeasure | Repository, access and security (who has access, where, backup) |
+| DOI | data property | may | bibo:doi | Associated datasets |
+| equipment failure | data property | may | cca:equipmentFailure | Justifications (sensor failures, etc.) |
 
 #### Model
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Model** | may |  | Defines the **Model** entity in the metadata model. |
-| Model / Neural Network | may | dct:type | Model type, neural network architecture |
-| Climate Considered | may | cca:climateConsidered | Current, future (period) |
-| Input Data | may | tech:hasInputData | Model input data |
-| Model Failures | may | cca:modelFailure | Justifications (simulation crashes, etc.) |
-
-### Auxiliary entities
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Model** | class | may | tech:Model | Defines the Model contextual entity in the metadata model |
+| has model | object property | may | tech:hasModel | Defines the relationship with the Model contextual entity |
+| model / neural network | data property | may | dct:type | Model type, neural network architecture |
+| climate considered | data property | may | cca:climateConsidered | Current, future (period) |
+| input data | object property | may | tech:hasInputData | Model input data |
+| model failures | data property | may | cca:modelFailure | Justifications (simulation crashes, etc.) |
 
 #### Satellite
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Satellite** | may |  | Defines the **Satellite** entity in the metadata model. |
-| Campaign or Satellite Mission | may |  | Captures the literal value for **Campaign or Satellite Mission** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Satellite** | class | may | cca:Satellite | Defines the Satellite contextual entity in the metadata model |
+| has satellite | object property | may | cca:hasSatellite | Defines the relationship with the Satellite contextual entity |
+| campaign or satellite Mission | data property | may | cca:hasMission | Campaign with DOI, mission name (e.g., Sentinel) |
 
 #### Document
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Document** | may |  | Defines the **Document** entity in the metadata model. |
-| Document Type | may |  | Captures the literal value for **Document Type** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Document metadata** | class | may | foaf:Document | Defines the Document contextual entity in the metadata model |
+| has document metadata | object property | may | foaf:isPrimaryTopicOf | Defines the relationship with the Document contextual entity |
+| document type | data property | may | dct:type | Textual (recommendation documents, synthesis), image, audio, video |
+
+### Auxiliary entities
 
 #### Place
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Place** | may | schema:Place | Defines the **Place** entity in the metadata model. |
-| geo | may | schema:geo | Defines a relationship for **geo** between metadata entities. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| address | may | schema:address | Captures the literal value for **address** (e.g., number, text, date). |
-| latitude | may | schema:latitude | Captures the literal value for **latitude** (e.g., number, text, date). |
-| longitude | may | schema:longitude | Captures the literal value for **longitude** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Place** | class | may | schema:Place | Defines the Place contextual entity in the metadata model |
+| geo | object property | may | schema:geo | Defines a relationship of Place and a GeoCoordinate or GeoShape |
+| name | data property | may | schema:name | Captures the literal value for name (e.g., number, text, date). |
+| address | data property | may | schema:address | Captures the literal value for address (e.g., number, text, date). |
+| latitude | data property | may | schema:latitude | Captures the literal value for latitude (e.g., number, text, date). |
+| longitude | data property | may | schema:longitude | Captures the literal value for longitude (e.g., number, text, date). |
 
 #### GeoCoordinate
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **GeoCoordinate** | may | schema:GeoCoordinate | Defines the **GeoCoordinate** entity in the metadata model. |
-| latitude | may | schema:latitude | Captures the literal value for **latitude** (e.g., number, text, date). |
-| longitude | may | schema:longitude | Captures the literal value for **longitude** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **GeoCoordinate** | class | may | schema:GeoCoordinate | Defines the GeoCoordinate contextual entity in the metadata model |
+| latitude | data property | may | schema:latitude | Captures the literal value for latitude (e.g., number, text, date) |
+| longitude | data property | may | schema:longitude | Captures the literal value for longitude (e.g., number, text, date) |
 
 #### GeoShape
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **GeoShape** | may | schema:GeoShape | Defines the **GeoShape** entity in the metadata model. |
-| polygon | may | schema:polygon | Captures the literal value for **polygon** (e.g., number, text, date). |
-| box | may | schema:box | Captures the literal value for **box** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **GeoShape** | class | may | schema:GeoShape | Defines the GeoShape contextual entity in the metadata model |
+| polygon | data property | may | schema:polygon | Captures the literal value for polygon (e.g., number, text, date) |
+| box | data property | may | schema:box | Captures the literal value for box (e.g., number, text, date) |
 
 #### Provenance Statement
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Provenance Statement** | may | dct:ProvenanceStatement | Defines the **Provenance Statement** entity in the metadata model. |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Provenance Statement** | class | may | dct:ProvenanceStatement | Defines the Provenance Statement contextual entity in the metadata model |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
 #### Person
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Person** | may | schema:Person | Defines the **Person** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Person** | class | may | schema:Person | Defines the Person contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
 
 #### Organisation
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Organisation** | may | schema:Organisation | Defines the **Organisation** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Organisation** | class | may | schema:Organisation | Defines the Organisation contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
 
 #### Grant
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Grant** | may | schema:Grant | Defines the **Grant** entity in the metadata model. |
-| funder | may | schema:funder | Defines a relationship for **funder** between metadata entities. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| url | may | schema:url | Captures the literal value for **url** (e.g., number, text, date). |
-| identifier | may | schema:identifier | Captures the literal value for **identifier** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Grant** | class | may | schema:Grant | Defines the Grant contextual entity in the metadata model. |
+| funder | object property | may | schema:funder | Defines a relationship for funder between metadata entities |
+| name | data property | may | schema:name | Captures the literal value for name  |
+| url | data property | may | schema:url | Captures the literal value for url |
+| identifier | data property | may | schema:identifier | Captures the literal value for identifier (e.g., number, text, date) |
 
 #### Standard
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Standard** | may | dct:Standard | Defines the **Standard** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Standard** | class | may | dct:Standard | Defines the Standard contextual entity in the metadata model. |
+| name | data property | may | schema:name | Captures the literal value for name |
 
 #### SensitivityLevel
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **SensitivityLevel** | may | dpv:SensitivityLevel | Defines the **SensitivityLevel** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **SensitivityLevel** | class | may | dpv:SensitivityLevel | Defines the SensitivityLevel contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
 
 #### Dataset
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Dataset** | may | schema:Dataset | Defines the **Dataset** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
-| identifier | may | schema:identifier | Captures the literal value for **identifier** (e.g., number, text, date). |
-
-#### Processing
-
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Processing** | may | dpv:Processing | Defines the **Processing** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Dataset** | class | may | schema:Dataset | Defines the Dataset entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name  |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
+| identifier | data property | may | schema:identifier | Captures the literal value for identifier (e.g., number, text, date) |
 
 #### DisasterRecoveryProcedures
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **DisasterRecoveryProcedures** | may | dpv:DisasterRecoveryProcedures | Defines the **DisasterRecoveryProcedures** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **DisasterRecoveryProcedures** | class | may | dpv:DisasterRecoveryProcedures | Defines the DisasterRecoveryProcedures contextual entity in the metadata model. |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
 #### AccessControlMethod
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **AccessControlMethod** | may | dpv:AccessControlMethod | Defines the **AccessControlMethod** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **AccessControlMethod** | class | may | dpv:AccessControlMethod | Defines the AccessControlMethod contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
 #### RightsStatement
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **RightsStatement** | may | dct:RightsStatement | Defines the **RightsStatement** entity in the metadata model. |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **RightsStatement** | class | may | dct:RightsStatement | Defines the RightsStatement contextual entity in the metadata model |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
 #### DataService
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **DataService** | may | dcat:DataService | Defines the **DataService** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
-| endpointURL | may | dcat:endpointURL | Captures the literal value for **endpointURL** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **DataService** | class | may | dcat:DataService | Defines the DataService entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
+| endpointURL | data property | may | dcat:endpointURL | Captures the literal value for endpointURL |
 
 #### Sensor
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Sensor** | may | sosa:Sensor | Defines the **Sensor** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Sensor** | class | may | sosa:Sensor | Defines the Sensor contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
 #### Procedure
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Procedure** | may | sosa:Procedure | Defines the **Procedure** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Procedure** | class | may | sosa:Procedure | Defines the Procedure contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
 #### TechnicalOrganisationalMeasure
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **TechnicalOrganisationalMeasure** | may | dpv:TechnicalOrganisationalMeasure | Defines the **TechnicalOrganisationalMeasure** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **TechnicalOrganisationalMeasure** | class | may | dpv:TechnicalOrganisationalMeasure | Defines the TechnicalOrganisationalMeasure contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date) |
 
 #### Creative Work
 
-| Term name | Should/May | Semantic term (Final mappings) | Description (Purpose/Comments) |
-|---|---|---|---|
-| **Creative Work** | may | schema:CreativeWork | Defines the **Creative Work** entity in the metadata model. |
-| name | may | schema:name | Captures the literal value for **name** (e.g., number, text, date). |
-| description | may | schema:description | Captures the literal value for **description** (e.g., number, text, date). |
-| identifier | may | schema:identifier | Captures the literal value for **identifier** (e.g., number, text, date). |
+| Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
+|---|---|---|---|---|
+| **Creative Work** | class | may | schema:CreativeWork | Defines the Creative Work contextual entity in the metadata model |
+| name | data property | may | schema:name | Captures the literal value for name |
+| description | data property | may | schema:description | Captures the literal value for description (e.g., number, text, date). |
+| identifier | data property | may | schema:identifier | Captures the literal value for identifier (e.g., number, text, date) |
 
 
 ## Example
