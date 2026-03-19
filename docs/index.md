@@ -59,11 +59,11 @@ RO-Crates that are conforming to (or intending to conform to) cca profile **SHOU
 | dcso | https://w3id.org/dcso/ns/core# |
 | dct | http://purl.org/dc/terms/ |
 | dpv | https://w3id.org/dpv# |
-| fabio | http://purl.org/spar/fabio/hasEmbargoDuration |
+| fabio | http://purl.org/spar/fabio/ |
 | foaf | http://xmlns.com/foaf/0.1/ |
 | iadopt | https://w3id.org/iadopt/ont/ |
 | rdfs | http://www.w3.org/2000/01/rdf-schema# |
-| sosa | http://www.w3.org/ns/sosa/madeBySensor |
+| sosa | http://www.w3.org/ns/sosa/ |
 | tech | https://w3id.org/dpv/tech# |
 | geodcat | http://data.europa.eu/930/ |
 | schema | https://schema.org/ |
