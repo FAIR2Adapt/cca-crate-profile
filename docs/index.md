@@ -72,7 +72,7 @@ RO-Crates that are conforming to (or intending to conform to) cca profile **SHOU
 
 ---
 
-### MVP
+### Minimal Viable Product Metadata
 This entity defines a Minimal Viable Product (MVP) along with the related metadata fields enabling its findability. 
 
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
@@ -88,7 +88,7 @@ This entity defines a Minimal Viable Product (MVP) along with the related metada
 | version DOI | data property | should | schema:identifier | DOI of the output |
 | provenance URL | object property | should | dct:provenance | Provenance URL of the model output |
 
-### Variable
+### Variable Metadata
 
 This entity defines a variable or observed property represented according to the I-ADOPT model, along with the related metadata fields enabling its findability. 
 
@@ -98,7 +98,7 @@ This entity defines a variable or observed property represented according to the
 | name | data property | may | schema:name | Captures the literal value for name (e.g., number, text, date) |
 | url | data property | may | schema:url | Captures the literal value for URL (e.g., number, text, date) |
 
-### Project-Level Metadata Fields
+### Project Related Metadata 
 
 This section defines a conceptual entity representing a related project along with the related metadata fields enabling its findability. 
 
@@ -131,13 +131,18 @@ This section defines the conceptual entities representing a related network alon
 | grants | object property | may | schema:funding or schema:funder (if grant is not needed/known) | Funding organizations |
 | network costs | data property | may | cca:averageNetworkCost | Average infrastructure costs |
 | data costs | data property | may | cca:averageDataCost | Average data costs |
+| data creation/collection | object property | may | schema:dataset | Defines a relationship to a dataset created/collected|
+| has processing | object property | may | dpv:hasProcessing | Defines the relation to the Processing contextual entity in the metadata model |
+| has analysis | object property | may | dpv:hasProcessing | Defines the relationship with the Analyze contextual entity in the metadata model |
+| has conservation | object property | should | dpv:hasProcessing | Defines relationship with the conservation (Store) contextual entity|
+| has access | object property | may | dpv:hasProcessing | Defines the relationship with the Access contextual entity |
+| has dissemination/reuse | may | dpv:hasProcessing | Defines the relationship with the Dissemitate contextual entity |
 
 #### Dataset
 
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Dataset** | class | may |  schema:Dataset | Defines the Dataset entity in the metadata model. |
-| data creation/collection | object property | may | schema:dataset | Defines a relationship for Data Creation/Collection between metadata entities. |
 | data creation manager | object property | should | citedcat:dataCollector | Data creation/collection responsible |
 | type | data property | may | dct:type | Type of data (collected/produced) |
 | origin | data property | should | dct:source | Data source type (observations/experimental/simulations/derived) |
@@ -163,7 +168,6 @@ This section defines the conceptual entities representing a related network alon
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Processing** | class | may | dpv:Processing | Defines the Processing contextual entity in the metadata model. Data processing beyond validation |
-| has processing | object property | may | dpv:hasProcessing | Defines the relation to the Processing contextual entity in the metadata model |
 | processing manager | object property | should | cca:processingManager | Processing/Analysis responsible |
 | processing automation | data property | may | cca:processingAutomation | Automatic/manual processing |
 | processing method | data property | may | cca:processingMethod | Processing methods/tools/protocols |
@@ -177,7 +181,6 @@ This section defines the conceptual entities representing a related network alon
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Analysis** | class | may | dpv:Analyse | Defines the Analyse contextual entity in the metadata model. |
-| has analysis | object property | may | dpv:hasProcessing | Defines the relationship with the Analyze contextual entity in the metadata model |
 | analysis automation | data property | may | cca:analysisAutomation | Automatic/manual analysis |
 | analysis method | data property | may | cca:analysisMethod | Analysis methods/tools/protocols |
 | analysis delay | data property | may | schema:processingTime | Average analysis time |
@@ -191,7 +194,6 @@ This section defines the conceptual entities representing a related network alon
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Store** | class | may | dpv:Store | Defines the Store contextual entity in the metadata model |
-| has conservation | object property | should | dpv:hasProcessing | Defines relationship with the conservation (Store) contextual entity|
 | conservation manager | object property | should | cca:conservationManager | Storage/Archiving responsible |
 | storage archiving | data property | may | dct:type | Storage vs archiving distinction |
 | procedure | data property | should | schema:procedure | Storage/archiving procedure |
@@ -208,7 +210,6 @@ This section defines the conceptual entities representing a related network alon
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Access** | class | may | dpv:Access | Defines the Access contextual entity in the metadata model |
-| has access | object property | may | dpv:hasProcessing | Defines the relationship with the Access contextual entity |
 | access manager | object property | should | cca:dataAccessManager | Data access responsible |
 | dissemination principle | object property | should | dct:accessRights | Dissemination principle |
 | mechanism | data property | should | schema:procedure | Access procedure to visualization tools |
@@ -225,7 +226,6 @@ This section defines the conceptual entities representing a related network alon
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Disseminate** | class | may | dpv:Disseminate | Defines the Disseminate contextual entity in the metadata model |
-| has dissemination/reuse | may | dpv:hasProcessing | Defines the relationship with the Dissemitate contextual entity |
 | dissemination manager | object property | should | cca:dataDissimiationManager | Dissemination/Reuse responsible |
 | identifier | data property | may | schema:identifier | Data identifier (ARK, DOI, Handle, etc.) |
 | integrity | data property | may | cca:integrityMethods | Data integrity methods |
@@ -261,13 +261,15 @@ This section defines the conceptual entities representing a related network alon
 | storage mode | data property | may | dpv:hasTechnicalOrganisationalMeasure | Repository, access and security (who has access, where, backup) |
 | DOI | data property | may | bibo:doi | Associated datasets |
 | equipment failure | data property | may | cca:equipmentFailure | Justifications (sensor failures, etc.) |
+| has model | object property | may | tech:hasModel | Defines the relationship with the Model contextual entity |
+| has satellite | object property | may | cca:hasSatellite | Defines the relationship with the Satellite contextual entity |
+| has document metadata | object property | may | foaf:isPrimaryTopicOf | Defines the relationship with the Document contextual entity |
 
 #### Model
 
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Model** | class | may | tech:Model | Defines the Model contextual entity in the metadata model |
-| has model | object property | may | tech:hasModel | Defines the relationship with the Model contextual entity |
 | model / neural network | data property | may | dct:type | Model type, neural network architecture |
 | climate considered | data property | may | cca:climateConsidered | Current, future (period) |
 | input data | object property | may | tech:hasInputData | Model input data |
@@ -278,7 +280,6 @@ This section defines the conceptual entities representing a related network alon
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Satellite** | class | may | cca:Satellite | Defines the Satellite contextual entity in the metadata model |
-| has satellite | object property | may | cca:hasSatellite | Defines the relationship with the Satellite contextual entity |
 | campaign or satellite Mission | data property | may | cca:hasMission | Campaign with DOI, mission name (e.g., Sentinel) |
 
 #### Document
@@ -286,7 +287,6 @@ This section defines the conceptual entities representing a related network alon
 | Term name | type | should/may | Semantic term | Description (Purpose/Comments) |
 |---|---|---|---|---|
 | **Document metadata** | class | may | foaf:Document | Defines the Document contextual entity in the metadata model |
-| has document metadata | object property | may | foaf:isPrimaryTopicOf | Defines the relationship with the Document contextual entity |
 | document type | data property | may | dct:type | Textual (recommendation documents, synthesis), image, audio, video |
 
 ### Auxiliary entities
