@@ -98,7 +98,7 @@ This entity defines a variable or observed property represented according to the
 | name | data property | may | schema:name | Captures the literal value for name (e.g., number, text, date) |
 | url | data property | may | schema:url | Captures the literal value for URL (e.g., number, text, date) |
 
-### Project Related Metadata 
+### Project Metadata 
 
 This section defines a conceptual entity representing a related project along with the related metadata fields enabling its findability. 
 
@@ -110,7 +110,7 @@ This section defines a conceptual entity representing a related project along wi
 | reused data | object property | may | cca:reusedData | Identifies external data sources |
 | general WP program | data property | may | cca:generalWPProgram | Overview of data collection activities |
 
-### Network Metadata Structure
+### Network Metadata 
 
 This section defines the conceptual entities representing a related network along with the related metadata fields enabling its findability. 
 
@@ -235,7 +235,7 @@ This section defines the conceptual entities representing a related network alon
 | metadata | object property | should | foaf:isPrimaryTopicOf | Associated metadata |
 | intelligibility | object property | may | schema:documentation | Documents for data intelligibility |
 
-### Campaign Metadata Structure
+### Campaign Metadata 
 
 #### Campaign
 
