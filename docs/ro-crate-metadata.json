@@ -19,6 +19,13 @@
       "description": "Metadata file descriptor for the Climate Change Adaptation RO-Crate Profile."
     },
     {
+      "@id": "ro-crate-preview.html",
+      "@type": "CreativeWork",    
+      "about": {
+        "@id": "https://w3id.org/cc-crate-profile/0.9"
+      }
+    },
+    {
       "@id": "https://w3id.org/cc-crate-profile/0.9",
       "@type": [
         "Dataset",
@@ -35,6 +42,7 @@
           "@id": "https://w3id.org/ro/crate/1.2"
         }
       ],
+      "datePublished": "2026-06-19",
       "hasPart": [
         {
           "@id": "https://fair2adapt.github.io/cca-crate-profile/"
@@ -154,7 +162,10 @@
       "license": {
         "@id": "https://creativecommons.org/licenses/by/4.0/"
       },
-      "inLanguage": "en"
+      "inLanguage": "en",
+      "about": {
+        "@id": "https://w3id.org/cc-crate-profile/0.9"
+      }
     },
     {
       "@id": "#hasSpecification",
@@ -461,7 +472,6 @@
         { "@id": "https://w3id.org/ro/terms/cca/preAnalysisLevel" },
         { "@id": "https://w3id.org/ro/terms/cca/postAnalysisLevel" },
         { "@id": "https://w3id.org/ro/terms/cca/hasProductNames" },
-        { "@id": "https://w3id.org/ro/terms/cca/reuseData" },
 
         { "@id": "https://w3id.org/ro/terms/cca/conservationManager" },
         { "@id": "https://w3id.org/ro/terms/cca/dataSelectionMethod" },
@@ -469,18 +479,15 @@
         { "@id": "https://w3id.org/ro/terms/cca/supportType" },
 
         { "@id": "https://w3id.org/ro/terms/cca/dataAccessManager" },
-        { "@id": "https://w3id.org/ro/terms/cca/databaseAvailability" },
-        { "@id": "https://w3id.org/ro/terms/cca/repositoryName" },
-        { "@id": "https://w3id.org/ro/terms/cca/organisationName" },
+        { "@id": "https://w3id.org/ro/terms/cca/databaseAvailability" },        
 
-        { "@id": "https://w3id.org/ro/terms/cca/dataDissimiationManager" },
+        { "@id": "https://w3id.org/ro/terms/cca/dataDisseminationManager" },
         { "@id": "https://w3id.org/ro/terms/cca/integrityMethods" },
         { "@id": "https://w3id.org/ro/terms/cca/traceabilityMethods" },
         { "@id": "https://w3id.org/ro/terms/cca/relatedPublications" },
 
         { "@id": "https://w3id.org/ro/terms/cca/hasCampaign" },
-        { "@id": "https://w3id.org/ro/terms/cca/equipmentUsed" },
-        { "@id": "https://w3id.org/ro/terms/cca/metadataFormat" },
+        { "@id": "https://w3id.org/ro/terms/cca/equipmentUsed" },        
         { "@id": "https://w3id.org/ro/terms/cca/equipmentFailure" },
 
         { "@id": "https://w3id.org/ro/terms/cca/climateConsidered" },
@@ -498,7 +505,7 @@
         "rdfs:Class"
       ],
       "name": "Network",
-      "description": "Defines the Network contextual entity in the metadata model.",
+      "description": "Defines the Network contextual entity in the metadata model",
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
       }
@@ -510,7 +517,7 @@
         "rdfs:Class"
       ],
       "name": "Campaign",
-      "description": "Defines the Campaign contextual entity in the metadata model.",
+      "description": "Defines the Campaign contextual entity in the metadata model",
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
       }
@@ -522,7 +529,7 @@
         "rdfs:Class"
       ],
       "name": "Satellite",
-      "description": "Defines the Satellite contextual entity in the metadata model.",
+      "description": "Defines the Satellite contextual entity in the metadata model",
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
       }
@@ -559,7 +566,7 @@
         "rdf:Property"
       ],
       "name": "dmp_id",
-      "description": "Identifies data managers for each type of data.",
+      "description": "Identifies DMP for each type of data",
       "domainIncludes": {
         "@id": "https://schema.org/Project"
       },
@@ -1118,31 +1125,7 @@
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
       }
-    },
-    {
-      "@id": "https://w3id.org/ro/terms/cca/reuseData",
-      "@type": [
-        "DefinedTerm",
-        "rdf:Property"
-      ],
-      "name": "reuseData",
-      "description": "Reuse of existing data.",
-      "domainIncludes": {
-        "@id": "https://w3id.org/dpv#Analyse"
-      },
-      "rangeIncludes": [
-        {
-          "@id": "https://schema.org/Text"
-        },
-        {
-          "@id": "https://schema.org/Boolean"
-        }
-      ],
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ro/terms/cca/"
-      }
-    },
-
+    },    
     {
       "@id": "https://w3id.org/ro/terms/cca/conservationManager",
       "@type": [
@@ -1251,56 +1234,14 @@
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
       }
-    },
+    },        
     {
-      "@id": "https://w3id.org/ro/terms/cca/repositoryName",
+      "@id": "https://w3id.org/ro/terms/cca/dataDisseminationManager",
       "@type": [
         "DefinedTerm",
         "rdf:Property"
       ],
-      "name": "repositoryName",
-      "description": "Repository name.",
-      "domainIncludes": {
-        "@id": "https://w3id.org/dpv#Access"
-      },
-      "rangeIncludes": {
-        "@id": "https://schema.org/Text"
-      },
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ro/terms/cca/"
-      }
-    },
-    {
-      "@id": "https://w3id.org/ro/terms/cca/organisationName",
-      "@type": [
-        "DefinedTerm",
-        "rdf:Property"
-      ],
-      "name": "organisationName",
-      "description": "Repository and organization name.",
-      "domainIncludes": {
-        "@id": "https://w3id.org/dpv#Access"
-      },
-      "rangeIncludes": [
-        {
-          "@id": "https://schema.org/Text"
-        },
-        {
-          "@id": "https://schema.org/Organization"
-        }
-      ],
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ro/terms/cca/"
-      }
-    },
-
-    {
-      "@id": "https://w3id.org/ro/terms/cca/dataDissimiationManager",
-      "@type": [
-        "DefinedTerm",
-        "rdf:Property"
-      ],
-      "name": "dataDissimiationManager",
+      "name": "dataDisseminationManager",
       "description": "Dissemination/Reuse responsible.",
       "domainIncludes": {
         "@id": "https://w3id.org/dpv#Disseminate"
@@ -1402,25 +1343,7 @@
       "inDefinedTermSet": {
         "@id": "https://w3id.org/ro/terms/cca/"
       }
-    },
-    {
-      "@id": "https://w3id.org/ro/terms/cca/metadataFormat",
-      "@type": [
-        "DefinedTerm",
-        "rdf:Property"
-      ],
-      "name": "metadataFormat",
-      "description": "Metadata format.",
-      "domainIncludes": {
-        "@id": "https://w3id.org/ro/terms/cca/Campaign"
-      },
-      "rangeIncludes": {
-        "@id": "https://schema.org/Text"
-      },
-      "inDefinedTermSet": {
-        "@id": "https://w3id.org/ro/terms/cca/"
-      }
-    },
+    },    
     {
       "@id": "https://w3id.org/ro/terms/cca/equipmentFailure",
       "@type": [
@@ -1484,7 +1407,7 @@
         "rdf:Property"
       ],
       "name": "hasSatellite",
-      "description": "Defines the relationship with the Satellite contextual entity in the metadata model.",
+      "description": "Defines the relationship with the Satellite contextual entity in the metadata model",
       "domainIncludes": {
         "@id": "https://w3id.org/ro/terms/cca/Campaign"
       },
