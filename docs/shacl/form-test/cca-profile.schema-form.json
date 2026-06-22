@@ -1,0 +1,2508 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "CCA RO-Crate Profile",
+    "properties": {
+      "id": {
+        "type": "string",
+        "title": "@id",
+        "enum": [
+          "./"
+        ]
+      },
+      "isRelatedTo": {
+        "type": "object",
+        "title": "Minimal Viable Product (MVP)",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Product"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true,
+        "description": "Reference to MVP"
+      },
+      "variableMeasured": {
+        "type": "object",
+        "title": "Variable Measured",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/iadopt/ont/Variable"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true,
+        "description": "Reference to Variable"
+      },
+      "publisher": {
+        "type": "object",
+        "title": "Project",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Project"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true,
+        "description": "Reference to Project"
+      },
+      "hasNetwork": {
+        "type": "object",
+        "title": "Network",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/ro/terms/cca/Network"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true,
+        "description": "Reference to Network"
+      },
+      "hasCampaign": {
+        "type": "object",
+        "title": "Campaign",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/ro/terms/cca/Campaign"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true,
+        "description": "Reference to Campaign"
+      },
+      "hasPart": {
+        "type": "object",
+        "title": "Data entity",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Dataset"
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true,
+        "description": "Reference to Dataset"
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": true,
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {
+      "ROCrateRootDataEntitylinkingshape": {
+        "type": "object",
+        "title": "RO-Crate Root Data Entity linking shape",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id",
+            "enum": [
+              "./"
+            ]
+          },
+          "isRelatedTo": {
+            "type": "object",
+            "title": "Minimal Viable Product (MVP)",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Product"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to MVP"
+          },
+          "variableMeasured": {
+            "type": "object",
+            "title": "Variable Measured",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/iadopt/ont/Variable"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Variable"
+          },
+          "publisher": {
+            "type": "object",
+            "title": "Project",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Project"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Project"
+          },
+          "hasNetwork": {
+            "type": "object",
+            "title": "Network",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/ro/terms/cca/Network"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Network"
+          },
+          "hasCampaign": {
+            "type": "object",
+            "title": "Campaign",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/ro/terms/cca/Campaign"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Campaign"
+          },
+          "hasPart": {
+            "type": "object",
+            "title": "Data entity",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Dataset"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Dataset"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": true
+      },
+      "MVP": {
+        "type": "object",
+        "title": "MVP",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Product"
+            ]
+          },
+          "variableMeasured": {
+            "type": "object",
+            "title": "variable",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/iadopt/ont/Variable"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Variable"
+          },
+          "depth": {
+            "type": "string",
+            "title": "depth level"
+          },
+          "temporalCoverage": {
+            "type": "string",
+            "title": "time range"
+          },
+          "spatialCoverage": {
+            "type": "object",
+            "title": "spatial extent",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Place"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Place"
+          },
+          "scenarioId": {
+            "type": "string",
+            "title": "scenario/run id"
+          },
+          "spatialResolutionAsText": {
+            "type": "string",
+            "title": "grid resolution"
+          },
+          "license": {
+            "type": "object",
+            "title": "licence",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "identifier": {
+            "type": "string",
+            "title": "version DOI"
+          },
+          "provenance": {
+            "type": "object",
+            "title": "provenance URL",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://purl.org/dc/terms/ProvenanceStatement"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to ProvenanceStatement"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "variableMeasured",
+          "depth",
+          "temporalCoverage",
+          "spatialCoverage",
+          "scenarioId",
+          "spatialResolutionAsText",
+          "license",
+          "identifier",
+          "provenance"
+        ],
+        "additionalProperties": true
+      },
+      "Variable": {
+        "type": "object",
+        "title": "Variable",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/iadopt/ont/Variable"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "url": {
+            "type": "string",
+            "title": "url"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Project": {
+        "type": "object",
+        "title": "Project",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Project"
+            ]
+          },
+          "dmp_id": {
+            "type": "object",
+            "title": "data management plan (DMP) reference",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/CreativeWork",
+                  "https://schema.org/URL"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "expectedDeliverable": {
+            "type": "string",
+            "title": "expected deliverables"
+          },
+          "reusedData": {
+            "type": "object",
+            "title": "reused data",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Dataset",
+                  "https://schema.org/CreativeWork",
+                  "https://schema.org/URL"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "generalWPProgram": {
+            "type": "string",
+            "title": "general WP program"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Network": {
+        "type": "object",
+        "title": "Network",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/ro/terms/cca/Network"
+            ]
+          },
+          "networkManager": {
+            "type": "object",
+            "title": "network manager",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "dataManager": {
+            "type": "object",
+            "title": "data manager",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "principalInvestigator": {
+            "type": "object",
+            "title": "scientific coordination",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "member": {
+            "type": "object",
+            "title": "partners",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Organisation"
+          },
+          "label": {
+            "type": "string",
+            "title": "labelling"
+          },
+          "ilicoIntegrationYear": {
+            "type": "string",
+            "title": "ILICO integration year"
+          },
+          "scientificIssues": {
+            "type": "string",
+            "title": "scientific issues"
+          },
+          "funding": {
+            "type": "object",
+            "title": "grants",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Grant",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "funder": {
+            "type": "object",
+            "title": "grants",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Grant",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "averageNetworkCost": {
+            "type": "string",
+            "title": "network costs"
+          },
+          "averageDataCost": {
+            "type": "string",
+            "title": "data costs"
+          },
+          "dataset": {
+            "type": "object",
+            "title": "data creation/collection",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Dataset"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Dataset"
+          },
+          "hasProcessing": {
+            "type": "object",
+            "title": "has dissemination/reuse",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/dpv#Disseminate"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Disseminate"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "name",
+          "hasProcessing"
+        ],
+        "additionalProperties": true
+      },
+      "Processing": {
+        "type": "object",
+        "title": "Processing",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#Processing"
+            ]
+          },
+          "processingManager": {
+            "type": "object",
+            "title": "processing manager",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "processingAutomation": {
+            "type": "string",
+            "title": "processing automation"
+          },
+          "processingMethod": {
+            "type": "string",
+            "title": "processing method"
+          },
+          "processingTime": {
+            "type": "string",
+            "title": "processing delay"
+          },
+          "preProcessingLevel": {
+            "type": "string",
+            "title": "pre-processing level"
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "processingManager"
+        ],
+        "additionalProperties": true
+      },
+      "Analysis": {
+        "type": "object",
+        "title": "Analysis",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#Analyse"
+            ]
+          },
+          "analysisAutomation": {
+            "type": "string",
+            "title": "analysis automation"
+          },
+          "analysisMethod": {
+            "type": "string",
+            "title": "analysis method"
+          },
+          "processingTime": {
+            "type": "string",
+            "title": "analysis delay"
+          },
+          "preAnalysisLevel": {
+            "type": "string",
+            "title": "pre-analysis level"
+          },
+          "postAnalysisLevel": {
+            "type": "string",
+            "title": "post-analysis level"
+          },
+          "hasProductNames": {
+            "type": "string",
+            "title": "products"
+          },
+          "reusedData": {
+            "type": "string",
+            "title": "data reuse"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Store": {
+        "type": "object",
+        "title": "Store",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#Store"
+            ]
+          },
+          "conservationManager": {
+            "type": "object",
+            "title": "conservation manager",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "type_value": {
+            "type": "string",
+            "title": "storage archiving"
+          },
+          "procedure": {
+            "type": "string",
+            "title": "procedure"
+          },
+          "dataSelectionMethod": {
+            "type": "string",
+            "title": "data selection"
+          },
+          "fileNamingConvention": {
+            "type": "string",
+            "title": "convention"
+          },
+          "supportType": {
+            "type": "string",
+            "title": "support"
+          },
+          "location": {
+            "type": "object",
+            "title": "location",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Place"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Place"
+          },
+          "duration": {
+            "type": "string",
+            "title": "conservation delay"
+          },
+          "hasOrganisationalMeasure": {
+            "type": "object",
+            "title": "retrieval",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/dpv#DisasterRecoveryProcedures"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to DisasterRecoveryProcedures"
+          },
+          "hasTechnicalMeasure": {
+            "type": "object",
+            "title": "securing",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/dpv#AccessControlMethod"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to AccessControlMethod"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "conservationManager",
+          "procedure",
+          "dataSelectionMethod",
+          "fileNamingConvention",
+          "supportType",
+          "location",
+          "duration"
+        ],
+        "additionalProperties": true
+      },
+      "Access": {
+        "type": "object",
+        "title": "Access",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#Access"
+            ]
+          },
+          "dataAccessManager": {
+            "type": "object",
+            "title": "access manager",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "accessRights": {
+            "type": "object",
+            "title": "dissemination principle",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://purl.org/dc/terms/RightsStatement"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to RightsStatement"
+          },
+          "procedure": {
+            "type": "string",
+            "title": "mechanism"
+          },
+          "processingTime": {
+            "type": "string",
+            "title": "dissemination delay"
+          },
+          "hasEmbargoDuration": {
+            "type": "string",
+            "title": "embargo period"
+          },
+          "databaseAvailability": {
+            "type": "string",
+            "title": "database"
+          },
+          "catalog": {
+            "type": "string",
+            "title": "carrier organisation"
+          },
+          "conformsTo": {
+            "type": "object",
+            "title": "data model",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://purl.org/dc/terms/Standard"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Standard"
+          },
+          "accessService": {
+            "type": "object",
+            "title": "management system",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://www.w3.org/ns/dcat#DataService"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to DataService"
+          },
+          "versionNotes": {
+            "type": "string",
+            "title": "history"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "dataAccessManager",
+          "accessRights",
+          "procedure",
+          "hasEmbargoDuration"
+        ],
+        "additionalProperties": true
+      },
+      "Disseminate": {
+        "type": "object",
+        "title": "Disseminate",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#Disseminate"
+            ]
+          },
+          "dataDisseminationManager": {
+            "type": "object",
+            "title": "dissemination manager",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "identifier": {
+            "type": "string",
+            "title": "identifier"
+          },
+          "integrityMethods": {
+            "type": "string",
+            "title": "integrity"
+          },
+          "traceabilityMethods": {
+            "type": "string",
+            "title": "traceability"
+          },
+          "license": {
+            "type": "object",
+            "title": "license",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "relatedPublications": {
+            "type": "string",
+            "title": "publication"
+          },
+          "isPrimaryTopicOf": {
+            "type": "object",
+            "title": "metadata",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://xmlns.com/foaf/0.1/Document"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Documentmetadata"
+          },
+          "documentation": {
+            "type": "object",
+            "title": "intelligibility",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/CreativeWork"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to CreativeWork"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "dataDisseminationManager",
+          "relatedPublications",
+          "isPrimaryTopicOf"
+        ],
+        "additionalProperties": true
+      },
+      "Campaign": {
+        "type": "object",
+        "title": "Campaign",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/ro/terms/cca/Campaign"
+            ]
+          },
+          "identifier": {
+            "type": "string",
+            "title": "identifier"
+          },
+          "equipmentUsed": {
+            "type": "string",
+            "title": "equipment"
+          },
+          "temporalCoverage": {
+            "type": "string",
+            "title": "deployment date"
+          },
+          "spatialCoverage": {
+            "type": "object",
+            "title": "geographic coverage",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Place"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Place"
+          },
+          "madeBySensor": {
+            "type": "object",
+            "title": "sensors",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://www.w3.org/ns/sosa/Sensor"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Sensor"
+          },
+          "usedProcedure": {
+            "type": "object",
+            "title": "measurement level",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://www.w3.org/ns/sosa/Procedure"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Procedure"
+          },
+          "frequency": {
+            "type": "string",
+            "title": "acquisition frequency"
+          },
+          "observedProperty": {
+            "type": "object",
+            "title": "parameters",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "unitCode": {
+            "type": "string",
+            "title": "unit"
+          },
+          "contentType": {
+            "type": "string",
+            "title": "data type"
+          },
+          "mediaType": {
+            "type": "string",
+            "title": "format / Access Software"
+          },
+          "size": {
+            "type": "string",
+            "title": "volumes"
+          },
+          "conformsTo": {
+            "type": "object",
+            "title": "metadata",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://purl.org/dc/terms/Standard"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Standard"
+          },
+          "format": {
+            "type": "string",
+            "title": "format"
+          },
+          "dataQualityAssurance": {
+            "type": "string",
+            "title": "quality control measures"
+          },
+          "hasTechnicalOrganisationalMeasure": {
+            "type": "object",
+            "title": "storage mode",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/dpv#TechnicalOrganisationalMeasure"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to TechnicalOrganisationalMeasure"
+          },
+          "doi": {
+            "type": "string",
+            "title": "DOI"
+          },
+          "equipmentFailure": {
+            "type": "string",
+            "title": "equipment failure"
+          },
+          "hasModel": {
+            "type": "object",
+            "title": "has model",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/dpv/tech#Model"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Model"
+          },
+          "hasSatellite": {
+            "type": "object",
+            "title": "has satellite",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/ro/terms/cca/Satellite"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Satellite"
+          },
+          "isPrimaryTopicOf": {
+            "type": "object",
+            "title": "has document metadata",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://xmlns.com/foaf/0.1/Document"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Documentmetadata"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Model": {
+        "type": "object",
+        "title": "Model",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv/tech#Model"
+            ]
+          },
+          "type_value": {
+            "type": "string",
+            "title": "model / neural network"
+          },
+          "climateConsidered": {
+            "type": "string",
+            "title": "climate considered"
+          },
+          "hasInputData": {
+            "type": "object",
+            "title": "input data",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Dataset"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Dataset"
+          },
+          "modelFailure": {
+            "type": "string",
+            "title": "model failures"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Satellite": {
+        "type": "object",
+        "title": "Satellite",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/ro/terms/cca/Satellite"
+            ]
+          },
+          "hasMission": {
+            "type": "string",
+            "title": "campaign or satellite Mission"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Documentmetadata": {
+        "type": "object",
+        "title": "Document metadata",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://xmlns.com/foaf/0.1/Document"
+            ]
+          },
+          "type_value": {
+            "type": "string",
+            "title": "document type"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Dataset": {
+        "type": "object",
+        "title": "Dataset",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Dataset"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          },
+          "identifier": {
+            "type": "string",
+            "title": "identifier"
+          },
+          "dataCollector": {
+            "type": "object",
+            "title": "data creation manager",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Person",
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "type_value": {
+            "type": "string",
+            "title": "type"
+          },
+          "source": {
+            "type": "string",
+            "title": "origin"
+          },
+          "dataNature": {
+            "type": "string",
+            "title": "nature"
+          },
+          "stability": {
+            "type": "string",
+            "title": "stability"
+          },
+          "spatialCoverage": {
+            "type": "object",
+            "title": "scale",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Place"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Place"
+          },
+          "variableMeasured": {
+            "type": "object",
+            "title": "variables",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/iadopt/ont/Variable"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Variable"
+          },
+          "acquisitionMethod": {
+            "type": "string",
+            "title": "acquisition method"
+          },
+          "acquisitionFrequency": {
+            "type": "string",
+            "title": "acquisition frequency"
+          },
+          "surveyAutomation": {
+            "type": "string",
+            "title": "survey automation"
+          },
+          "conformsTo": {
+            "type": "object",
+            "title": "standard application",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "http://purl.org/dc/terms/Standard"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Standard"
+          },
+          "hasSensitivityLevel": {
+            "type": "object",
+            "title": "sensitivity",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://w3id.org/dpv#SensitivityLevel"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to SensitivityLevel"
+          },
+          "dataRecoveryDelay": {
+            "type": "string",
+            "title": "delay"
+          },
+          "byteSize": {
+            "type": "string",
+            "title": "volume"
+          },
+          "validationApproach": {
+            "type": "string",
+            "title": "validation"
+          },
+          "qualityApproach": {
+            "type": "string",
+            "title": "qualification"
+          },
+          "format": {
+            "type": "string",
+            "title": "format"
+          },
+          "stationsStudied": {
+            "type": "string",
+            "title": "site number"
+          },
+          "datasetNumber": {
+            "type": "string",
+            "title": "dataset number"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "dataCollector",
+          "source",
+          "dataNature",
+          "spatialCoverage",
+          "hasSensitivityLevel"
+        ],
+        "additionalProperties": true
+      },
+      "Place": {
+        "type": "object",
+        "title": "Place",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Place"
+            ]
+          },
+          "geo": {
+            "type": "object",
+            "title": "geo",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/GeoCoordinate",
+                  "https://schema.org/GeoShape"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "address": {
+            "type": "string",
+            "title": "address"
+          },
+          "latitude": {
+            "type": "string",
+            "title": "latitude"
+          },
+          "longitude": {
+            "type": "string",
+            "title": "longitude"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "GeoCoordinate": {
+        "type": "object",
+        "title": "GeoCoordinate",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/GeoCoordinate"
+            ]
+          },
+          "latitude": {
+            "type": "string",
+            "title": "latitude"
+          },
+          "longitude": {
+            "type": "string",
+            "title": "longitude"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "GeoShape": {
+        "type": "object",
+        "title": "GeoShape",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/GeoShape"
+            ]
+          },
+          "polygon": {
+            "type": "string",
+            "title": "polygon"
+          },
+          "box": {
+            "type": "string",
+            "title": "box"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "ProvenanceStatement": {
+        "type": "object",
+        "title": "Provenance Statement",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://purl.org/dc/terms/ProvenanceStatement"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Person": {
+        "type": "object",
+        "title": "Person",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Person"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Organisation": {
+        "type": "object",
+        "title": "Organisation",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Organisation"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Grant": {
+        "type": "object",
+        "title": "Grant",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/Grant"
+            ]
+          },
+          "funder": {
+            "type": "object",
+            "title": "funder",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Organisation"
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "url": {
+            "type": "string",
+            "title": "url"
+          },
+          "identifier": {
+            "type": "string",
+            "title": "identifier"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Standard": {
+        "type": "object",
+        "title": "Standard",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://purl.org/dc/terms/Standard"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "SensitivityLevel": {
+        "type": "object",
+        "title": "SensitivityLevel",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#SensitivityLevel"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "DisasterRecoveryProcedures": {
+        "type": "object",
+        "title": "DisasterRecoveryProcedures",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#DisasterRecoveryProcedures"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "AccessControlMethod": {
+        "type": "object",
+        "title": "AccessControlMethod",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#AccessControlMethod"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "RightsStatement": {
+        "type": "object",
+        "title": "RightsStatement",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://purl.org/dc/terms/RightsStatement"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Catalog": {
+        "type": "object",
+        "title": "Catalog",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://www.w3.org/ns/dcat#Catalog"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          },
+          "hostingInstitution": {
+            "type": "object",
+            "title": "hostingInstitution",
+            "properties": {
+              "id": {
+                "type": "string",
+                "title": "@id"
+              },
+              "type": {
+                "type": "string",
+                "title": "@type",
+                "enum": [
+                  "https://schema.org/Organisation"
+                ]
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": true,
+            "description": "Reference to Organisation"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "DataService": {
+        "type": "object",
+        "title": "DataService",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://www.w3.org/ns/dcat#DataService"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          },
+          "endpointURL": {
+            "type": "string",
+            "title": "endpointURL"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Sensor": {
+        "type": "object",
+        "title": "Sensor",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://www.w3.org/ns/sosa/Sensor"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "Procedure": {
+        "type": "object",
+        "title": "Procedure",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "http://www.w3.org/ns/sosa/Procedure"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "TechnicalOrganisationalMeasure": {
+        "type": "object",
+        "title": "TechnicalOrganisationalMeasure",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://w3id.org/dpv#TechnicalOrganisationalMeasure"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      },
+      "CreativeWork": {
+        "type": "object",
+        "title": "Creative Work",
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "@id"
+          },
+          "type": {
+            "type": "string",
+            "title": "@type",
+            "enum": [
+              "https://schema.org/CreativeWork"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "title": "name"
+          },
+          "description": {
+            "type": "string",
+            "title": "description"
+          },
+          "identifier": {
+            "type": "string",
+            "title": "identifier"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "form": [
+    "id",
+    {
+      "type": "fieldset",
+      "title": "Minimal Viable Product (MVP)",
+      "items": [
+        "isRelatedTo.id",
+        "isRelatedTo.type"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Variable Measured",
+      "items": [
+        "variableMeasured.id",
+        "variableMeasured.type"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Project",
+      "items": [
+        "publisher.id",
+        "publisher.type"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Network",
+      "items": [
+        "hasNetwork.id",
+        "hasNetwork.type"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Campaign",
+      "items": [
+        "hasCampaign.id",
+        "hasCampaign.type"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Data entity",
+      "items": [
+        "hasPart.id",
+        "hasPart.type"
+      ]
+    }
+  ]
+}

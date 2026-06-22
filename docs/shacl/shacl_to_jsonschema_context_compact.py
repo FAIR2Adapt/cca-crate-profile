@@ -26,6 +26,72 @@ PREFIXES = {
 }
 
 
+def dumps_compact_json(value, indent=2, current=0):
+    """
+    Pretty-print JSON while keeping small primitive arrays/objects inline.
+
+    This keeps generated JSON Schema readable but avoids excessive vertical
+    expansion for constructs such as:
+      "required": ["@id"]
+      "@id": { "type": "string" }
+      "@type": { "const": "https://schema.org/Dataset" }
+
+    The output is valid JSON and preserves the schema structure unchanged.
+    """
+    space = " " * current
+    next_space = " " * (current + indent)
+
+    def is_primitive(x):
+        return x is None or isinstance(x, (str, int, float, bool))
+
+    def is_inline_list(x):
+        return isinstance(x, list) and all(is_primitive(i) for i in x)
+
+    def is_inline_dict(x):
+        return (
+            isinstance(x, dict)
+            and len(x) <= 3
+            and all(is_primitive(v) for v in x.values())
+        )
+
+    if is_primitive(value):
+        return json.dumps(value, ensure_ascii=False)
+
+    if is_inline_list(value):
+        return "[" + ", ".join(json.dumps(v, ensure_ascii=False) for v in value) + "]"
+
+    if is_inline_dict(value):
+        items = [
+            json.dumps(k, ensure_ascii=False) + ": " + json.dumps(v, ensure_ascii=False)
+            for k, v in value.items()
+        ]
+        return "{ " + ", ".join(items) + " }"
+
+    if isinstance(value, list):
+        if not value:
+            return "[]"
+        rendered = [
+            next_space + dumps_compact_json(item, indent, current + indent)
+            for item in value
+        ]
+        return "[\n" + ",\n".join(rendered) + "\n" + space + "]"
+
+    if isinstance(value, dict):
+        if not value:
+            return "{}"
+        rendered = []
+        for k, v in value.items():
+            rendered.append(
+                next_space
+                + json.dumps(k, ensure_ascii=False)
+                + ": "
+                + dumps_compact_json(v, indent, current + indent)
+            )
+        return "{\n" + ",\n".join(rendered) + "\n" + space + "}"
+
+    raise TypeError(f"Unsupported JSON value: {type(value)!r}")
+
+
 def local_name(uri):
     s = str(uri)
     return s.rstrip("/#").split("/")[-1].split("#")[-1]
@@ -331,11 +397,11 @@ def main():
     schema, context = convert(shacl_file, context_file.name)
 
     schema_file.write_text(
-        json.dumps(schema, indent=2, ensure_ascii=False),
+        dumps_compact_json(schema, indent=2),
         encoding="utf-8"
     )
     context_file.write_text(
-        json.dumps(context, indent=2, ensure_ascii=False),
+        dumps_compact_json(context, indent=2),
         encoding="utf-8"
     )
 

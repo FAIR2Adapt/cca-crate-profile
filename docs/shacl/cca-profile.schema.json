@@ -3,276 +3,501 @@
   "$id": "https://w3id.org/ro/terms/cca/schema/json-schema",
   "title": "CCA RO-Crate profile JSON Schema",
   "type": "object",
-  "$comment": "JSON property names are fully expanded IRIs derived from SHACL sh:path. The JSON-LD context is provided separately for compact JSON-LD usage.",
-  "x-jsonld-context": "cca-profile.context.json",
+  "$comment": "JSON property names are fully expanded IRIs derived from SHACL sh:path. Object-property ranges are represented using standard JSON Schema keywords: type, required, properties, const, oneOf and $ref. The JSON-LD context is generated separately for compact JSON-LD usage.",
   "$defs": {
     "ROCrateRootDataEntitylinkingshape": {
       "title": "RO-Crate Root Data Entity linking shape",
       "type": "object",
       "properties": {
-        "@id": {
-          "const": "./"
-        },
+        "@id": { "const": "./" },
         "https://schema.org/isRelatedTo": {
-          "type": "string",
-          "title": "Minimal Viable Product (MVP)",
-          "format": "uri",
-          "description": "Expected RDF class: https://schema.org/Product"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Product" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/MVP" }
+          ],
+          "title": "Minimal Viable Product (MVP)"
         },
         "https://schema.org/variableMeasured": {
-          "type": "string",
-          "title": "Variable Measured",
-          "format": "uri",
-          "description": "Expected RDF class: https://w3id.org/iadopt/ont/Variable"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/iadopt/ont/Variable" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Variable" }
+          ],
+          "title": "Variable Measured"
         },
         "https://schema.org/publisher": {
-          "type": "string",
-          "title": "Project",
-          "format": "uri",
-          "description": "Expected RDF class: https://schema.org/Project"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Project" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Project" }
+          ],
+          "title": "Project"
         },
         "https://w3id.org/ro/terms/cca/hasNetwork": {
-          "type": "string",
-          "title": "Network",
-          "format": "uri",
-          "description": "Expected RDF class: https://w3id.org/ro/terms/cca/Network"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/ro/terms/cca/Network" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Network" }
+          ],
+          "title": "Network"
         },
         "https://w3id.org/ro/terms/cca/hasCampaign": {
-          "type": "string",
-          "title": "Campaign",
-          "format": "uri",
-          "description": "Expected RDF class: https://w3id.org/ro/terms/cca/Campaign"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/ro/terms/cca/Campaign" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Campaign" }
+          ],
+          "title": "Campaign"
         },
         "https://schema.org/hasPart": {
-          "type": "string",
-          "title": "Dataset",
-          "format": "uri",
-          "description": "Expected RDF class: https://schema.org/Dataset"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Dataset" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Dataset" }
+          ],
+          "title": "Data entity"
         }
       },
-      "required": [
-        "@id"
-      ],
+      "required": ["@id"],
       "additionalProperties": true
     },
     "MVP": {
       "title": "MVP",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/Product"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/Product" },
         "https://schema.org/variableMeasured": {
-          "type": "string",
-          "title": "variable",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/iadopt/ont/Variable" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Variable" }
+          ],
+          "title": "variable"
         },
-        "https://schema.org/depth": {
-          "type": "string",
-          "title": "depth level"
-        },
-        "https://schema.org/temporalCoverage": {
-          "type": "string",
-          "title": "time range"
-        },
+        "https://schema.org/depth": { "type": "string", "title": "depth level" },
+        "https://schema.org/temporalCoverage": { "type": "string", "title": "time range" },
         "https://schema.org/spatialCoverage": {
-          "type": "string",
-          "title": "spatial extent",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Place" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Place" }
+          ],
+          "title": "spatial extent"
         },
-        "https://w3id.org/ro/terms/cca/scenarioId": {
-          "type": "string",
-          "title": "scenario/run id"
-        },
-        "http://data.europa.eu/930/spatialResolutionAsText": {
-          "type": "string",
-          "title": "grid resolution"
-        },
+        "https://w3id.org/ro/terms/cca/scenarioId": { "type": "string", "title": "scenario/run id" },
+        "http://data.europa.eu/930/spatialResolutionAsText": { "type": "string", "title": "grid resolution" },
         "https://schema.org/license": {
-          "type": "string",
-          "title": "licence",
-          "format": "uri"
+          "type": "object",
+          "required": ["@id"],
+          "properties": {
+            "@id": { "type": "string" }
+          },
+          "additionalProperties": true,
+          "title": "licence"
         },
-        "https://schema.org/identifier": {
-          "type": "string",
-          "title": "version DOI"
-        },
+        "https://schema.org/identifier": { "type": "string", "title": "version DOI" },
         "http://purl.org/dc/terms/provenance": {
-          "type": "string",
-          "title": "provenance URL",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://purl.org/dc/terms/ProvenanceStatement" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/ProvenanceStatement" }
+          ],
+          "title": "provenance URL"
         }
       },
-      "required": [
-        "@id",
-        "@type",
-        "https://schema.org/variableMeasured",
-        "https://schema.org/depth",
-        "https://schema.org/temporalCoverage",
-        "https://schema.org/spatialCoverage",
-        "https://w3id.org/ro/terms/cca/scenarioId",
-        "http://data.europa.eu/930/spatialResolutionAsText",
-        "https://schema.org/license",
-        "https://schema.org/identifier",
-        "http://purl.org/dc/terms/provenance"
-      ],
+      "required": ["@id", "@type", "https://schema.org/variableMeasured", "https://schema.org/depth", "https://schema.org/temporalCoverage", "https://schema.org/spatialCoverage", "https://w3id.org/ro/terms/cca/scenarioId", "http://data.europa.eu/930/spatialResolutionAsText", "https://schema.org/license", "https://schema.org/identifier", "http://purl.org/dc/terms/provenance"],
       "additionalProperties": true
     },
     "Variable": {
       "title": "Variable",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/iadopt/ont/Variable"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/url": {
-          "type": "string",
-          "title": "url"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/iadopt/ont/Variable" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/url": { "type": "string", "title": "url" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Project": {
       "title": "Project",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/Project"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/Project" },
         "https://w3id.org/ro/terms/cca/dmp_id": {
-          "type": "string",
           "title": "data management plan (DMP) reference",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/CreativeWork" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/CreativeWork" }
+              ]
+            },
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/URL" }
+              },
+              "additionalProperties": true
+            }
+          ]
         },
-        "https://w3id.org/ro/terms/cca/expectedDeliverable": {
-          "type": "string",
-          "title": "expected deliverables"
-        },
+        "https://w3id.org/ro/terms/cca/expectedDeliverable": { "type": "string", "title": "expected deliverables" },
         "https://w3id.org/ro/terms/cca/reusedData": {
-          "type": "string",
           "title": "reused data",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Dataset" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Dataset" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/CreativeWork" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/CreativeWork" }
+              ]
+            },
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/URL" }
+              },
+              "additionalProperties": true
+            }
+          ]
         },
-        "https://w3id.org/ro/terms/cca/generalWPProgram": {
-          "type": "string",
-          "title": "general WP program"
-        }
+        "https://w3id.org/ro/terms/cca/generalWPProgram": { "type": "string", "title": "general WP program" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Network": {
       "title": "Network",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/ro/terms/cca/Network"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/ro/terms/cca/Network" },
         "https://w3id.org/ro/terms/cca/networkManager": {
-          "type": "string",
           "title": "network manager",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
+        "https://schema.org/name": { "type": "string", "title": "name" },
         "https://w3id.org/citedcat-ap/dataManager": {
-          "type": "string",
           "title": "data manager",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
         "http://data.europa.eu/930/principalInvestigator": {
-          "type": "string",
           "title": "scientific coordination",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
         "https://schema.org/member": {
-          "type": "string",
-          "title": "partners",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Organisation" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Organisation" }
+          ],
+          "title": "partners"
         },
-        "http://www.w3.org/2000/01/rdf-schema#label": {
-          "type": "string",
-          "title": "labelling"
-        },
-        "https://w3id.org/ro/terms/cca/IlicoIntegrationYear": {
-          "type": "string",
-          "title": "ILICO integration year"
-        },
-        "https://w3id.org/ro/terms/cca/scientificIssues": {
-          "type": "string",
-          "title": "scientific issues"
-        },
+        "http://www.w3.org/2000/01/rdf-schema#label": { "type": "string", "title": "labelling" },
+        "https://w3id.org/ro/terms/cca/IlicoIntegrationYear": { "type": "string", "title": "ILICO integration year" },
+        "https://w3id.org/ro/terms/cca/scientificIssues": { "type": "string", "title": "scientific issues" },
         "https://schema.org/funding": {
-          "type": "string",
           "title": "grants",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Grant" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Grant" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
         "https://schema.org/funder": {
-          "type": "string",
           "title": "grants",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Grant" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Grant" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
-        "https://w3id.org/ro/terms/cca/averageNetworkCost": {
-          "type": "string",
-          "title": "network costs"
-        },
-        "https://w3id.org/ro/terms/cca/averageDataCost": {
-          "type": "string",
-          "title": "data costs"
-        },
+        "https://w3id.org/ro/terms/cca/averageNetworkCost": { "type": "string", "title": "network costs" },
+        "https://w3id.org/ro/terms/cca/averageDataCost": { "type": "string", "title": "data costs" },
         "https://schema.org/dataset": {
-          "type": "string",
-          "title": "data creation/collection",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Dataset" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Dataset" }
+          ],
+          "title": "data creation/collection"
         },
         "https://w3id.org/dpv#hasProcessing": {
-          "type": "string",
-          "title": "has dissemination/reuse",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/dpv#Disseminate" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Disseminate" }
+          ],
+          "title": "has dissemination/reuse"
         }
       },
-      "required": [
-        "@id",
-        "@type",
-        "https://schema.org/name",
-        "https://w3id.org/dpv#hasProcessing"
-      ],
+      "required": ["@id", "@type", "https://schema.org/name", "https://w3id.org/dpv#hasProcessing"],
       "additionalProperties": true,
       "oneOf": [
         {
-          "required": [
-            "https://schema.org/funding"
-          ]
+          "required": ["https://schema.org/funding"]
         },
         {
-          "required": [
-            "https://schema.org/funder"
-          ]
+          "required": ["https://schema.org/funder"]
         }
       ]
     },
@@ -280,1041 +505,939 @@
       "title": "Processing",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#Processing"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#Processing" },
         "https://w3id.org/ro/terms/cca/processingManager": {
-          "type": "string",
           "title": "processing manager",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
-        "https://w3id.org/ro/terms/cca/processingAutomation": {
-          "type": "string",
-          "title": "processing automation"
-        },
-        "https://w3id.org/ro/terms/cca/processingMethod": {
-          "type": "string",
-          "title": "processing method"
-        },
-        "https://schema.org/processingTime": {
-          "type": "string",
-          "title": "processing delay"
-        },
-        "https://w3id.org/ro/terms/cca/preProcessingLevel": {
-          "type": "string",
-          "title": "pre-processing level"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "https://w3id.org/ro/terms/cca/processingAutomation": { "type": "string", "title": "processing automation" },
+        "https://w3id.org/ro/terms/cca/processingMethod": { "type": "string", "title": "processing method" },
+        "https://schema.org/processingTime": { "type": "string", "title": "processing delay" },
+        "https://w3id.org/ro/terms/cca/preProcessingLevel": { "type": "string", "title": "pre-processing level" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type",
-        "https://w3id.org/ro/terms/cca/processingManager"
-      ],
+      "required": ["@id", "@type", "https://w3id.org/ro/terms/cca/processingManager"],
       "additionalProperties": true
     },
     "Analysis": {
       "title": "Analysis",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#Analyse"
-        },
-        "https://w3id.org/ro/terms/cca/analysisAutomation": {
-          "type": "string",
-          "title": "analysis automation"
-        },
-        "https://w3id.org/ro/terms/cca/analysisMethod": {
-          "type": "string",
-          "title": "analysis method"
-        },
-        "https://schema.org/processingTime": {
-          "type": "string",
-          "title": "analysis delay"
-        },
-        "https://w3id.org/ro/terms/cca/preAnalysisLevel": {
-          "type": "string",
-          "title": "pre-analysis level"
-        },
-        "https://w3id.org/ro/terms/cca/postAnalysisLevel": {
-          "type": "string",
-          "title": "post-analysis level"
-        },
-        "https://w3id.org/ro/terms/cca/hasProductNames": {
-          "type": "string",
-          "title": "products"
-        },
-        "https://w3id.org/ro/terms/cca/reusedData": {
-          "type": "string",
-          "title": "data reuse"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#Analyse" },
+        "https://w3id.org/ro/terms/cca/analysisAutomation": { "type": "string", "title": "analysis automation" },
+        "https://w3id.org/ro/terms/cca/analysisMethod": { "type": "string", "title": "analysis method" },
+        "https://schema.org/processingTime": { "type": "string", "title": "analysis delay" },
+        "https://w3id.org/ro/terms/cca/preAnalysisLevel": { "type": "string", "title": "pre-analysis level" },
+        "https://w3id.org/ro/terms/cca/postAnalysisLevel": { "type": "string", "title": "post-analysis level" },
+        "https://w3id.org/ro/terms/cca/hasProductNames": { "type": "string", "title": "products" },
+        "https://w3id.org/ro/terms/cca/reusedData": { "type": "string", "title": "data reuse" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Store": {
       "title": "Store",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#Store"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#Store" },
         "https://w3id.org/ro/terms/cca/conservationManager": {
-          "type": "string",
           "title": "conservation manager",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
-        "http://purl.org/dc/terms/type": {
-          "type": "string",
-          "title": "storage archiving"
-        },
-        "https://schema.org/procedure": {
-          "type": "string",
-          "title": "procedure"
-        },
-        "https://w3id.org/ro/terms/cca/dataSelectionMethod": {
-          "type": "string",
-          "title": "data selection"
-        },
-        "https://w3id.org/ro/terms/cca/fileNamingConvention": {
-          "type": "string",
-          "title": "convention"
-        },
-        "https://w3id.org/ro/terms/cca/supportType": {
-          "type": "string",
-          "title": "support"
-        },
+        "http://purl.org/dc/terms/type": { "type": "string", "title": "storage archiving" },
+        "https://schema.org/procedure": { "type": "string", "title": "procedure" },
+        "https://w3id.org/ro/terms/cca/dataSelectionMethod": { "type": "string", "title": "data selection" },
+        "https://w3id.org/ro/terms/cca/fileNamingConvention": { "type": "string", "title": "convention" },
+        "https://w3id.org/ro/terms/cca/supportType": { "type": "string", "title": "support" },
         "https://schema.org/location": {
-          "type": "string",
-          "title": "location",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Place" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Place" }
+          ],
+          "title": "location"
         },
-        "https://schema.org/duration": {
-          "type": "string",
-          "title": "conservation delay"
-        },
+        "https://schema.org/duration": { "type": "string", "title": "conservation delay" },
         "https://w3id.org/dpv#hasOrganisationalMeasure": {
-          "type": "string",
-          "title": "retrieval",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/dpv#DisasterRecoveryProcedures" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/DisasterRecoveryProcedures" }
+          ],
+          "title": "retrieval"
         },
         "https://w3id.org/dpv#hasTechnicalMeasure": {
-          "type": "string",
-          "title": "securing",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/dpv#AccessControlMethod" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/AccessControlMethod" }
+          ],
+          "title": "securing"
         }
       },
-      "required": [
-        "@id",
-        "@type",
-        "https://w3id.org/ro/terms/cca/conservationManager",
-        "https://schema.org/procedure",
-        "https://w3id.org/ro/terms/cca/dataSelectionMethod",
-        "https://w3id.org/ro/terms/cca/fileNamingConvention",
-        "https://w3id.org/ro/terms/cca/supportType",
-        "https://schema.org/location",
-        "https://schema.org/duration"
-      ],
+      "required": ["@id", "@type", "https://w3id.org/ro/terms/cca/conservationManager", "https://schema.org/procedure", "https://w3id.org/ro/terms/cca/dataSelectionMethod", "https://w3id.org/ro/terms/cca/fileNamingConvention", "https://w3id.org/ro/terms/cca/supportType", "https://schema.org/location", "https://schema.org/duration"],
       "additionalProperties": true
     },
     "Access": {
       "title": "Access",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#Access"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#Access" },
         "https://w3id.org/ro/terms/cca/dataAccessManager": {
-          "type": "string",
           "title": "access manager",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
         "http://purl.org/dc/terms/accessRights": {
-          "type": "string",
-          "title": "dissemination principle",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://purl.org/dc/terms/RightsStatement" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/RightsStatement" }
+          ],
+          "title": "dissemination principle"
         },
-        "https://schema.org/procedure": {
-          "type": "string",
-          "title": "mechanism"
-        },
-        "https://schema.org/processingTime": {
-          "type": "string",
-          "title": "dissemination delay"
-        },
-        "http://purl.org/spar/fabio/hasEmbargoDuration": {
-          "type": "string",
-          "title": "embargo period"
-        },
-        "https://w3id.org/ro/terms/cca/databaseAvailability": {
-          "type": "string",
-          "title": "database"
-        },
-        "http://www.w3.org/ns/dcat#catalog": {
-          "type": "string",
-          "title": "carrier organisation"
-        },
+        "https://schema.org/procedure": { "type": "string", "title": "mechanism" },
+        "https://schema.org/processingTime": { "type": "string", "title": "dissemination delay" },
+        "http://purl.org/spar/fabio/hasEmbargoDuration": { "type": "string", "title": "embargo period" },
+        "https://w3id.org/ro/terms/cca/databaseAvailability": { "type": "string", "title": "database" },
+        "http://www.w3.org/ns/dcat#catalog": { "type": "string", "title": "carrier organisation" },
         "http://purl.org/dc/terms/conformsTo": {
-          "type": "string",
-          "title": "data model",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://purl.org/dc/terms/Standard" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Standard" }
+          ],
+          "title": "data model"
         },
         "http://www.w3.org/ns/dcat#accessService": {
-          "type": "string",
-          "title": "management system",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://www.w3.org/ns/dcat#DataService" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/DataService" }
+          ],
+          "title": "management system"
         },
-        "http://www.w3.org/ns/adms#versionNotes": {
-          "type": "string",
-          "title": "history"
-        }
+        "http://www.w3.org/ns/adms#versionNotes": { "type": "string", "title": "history" }
       },
-      "required": [
-        "@id",
-        "@type",
-        "https://w3id.org/ro/terms/cca/dataAccessManager",
-        "http://purl.org/dc/terms/accessRights",
-        "https://schema.org/procedure",
-        "http://purl.org/spar/fabio/hasEmbargoDuration"
-      ],
+      "required": ["@id", "@type", "https://w3id.org/ro/terms/cca/dataAccessManager", "http://purl.org/dc/terms/accessRights", "https://schema.org/procedure", "http://purl.org/spar/fabio/hasEmbargoDuration"],
       "additionalProperties": true
     },
     "Disseminate": {
       "title": "Disseminate",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#Disseminate"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#Disseminate" },
         "https://w3id.org/ro/terms/cca/dataDisseminationManager": {
-          "type": "string",
           "title": "dissemination manager",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
-        "https://schema.org/identifier": {
-          "type": "string",
-          "title": "identifier"
-        },
-        "https://w3id.org/ro/terms/cca/integrityMethods": {
-          "type": "string",
-          "title": "integrity"
-        },
-        "https://w3id.org/ro/terms/cca/traceabilityMethods": {
-          "type": "string",
-          "title": "traceability"
-        },
+        "https://schema.org/identifier": { "type": "string", "title": "identifier" },
+        "https://w3id.org/ro/terms/cca/integrityMethods": { "type": "string", "title": "integrity" },
+        "https://w3id.org/ro/terms/cca/traceabilityMethods": { "type": "string", "title": "traceability" },
         "https://schema.org/license": {
-          "type": "string",
-          "title": "license",
-          "format": "uri"
+          "type": "object",
+          "required": ["@id"],
+          "properties": {
+            "@id": { "type": "string" }
+          },
+          "additionalProperties": true,
+          "title": "license"
         },
-        "https://w3id.org/ro/terms/cca/relatedPublications": {
-          "type": "string",
-          "title": "publication"
-        },
+        "https://w3id.org/ro/terms/cca/relatedPublications": { "type": "string", "title": "publication" },
         "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": {
-          "type": "string",
-          "title": "metadata",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://xmlns.com/foaf/0.1/Document" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Documentmetadata" }
+          ],
+          "title": "metadata"
         },
         "https://schema.org/documentation": {
-          "type": "string",
-          "title": "intelligibility",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/CreativeWork" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/CreativeWork" }
+          ],
+          "title": "intelligibility"
         }
       },
-      "required": [
-        "@id",
-        "@type",
-        "https://w3id.org/ro/terms/cca/dataDisseminationManager",
-        "https://w3id.org/ro/terms/cca/relatedPublications",
-        "http://xmlns.com/foaf/0.1/isPrimaryTopicOf"
-      ],
+      "required": ["@id", "@type", "https://w3id.org/ro/terms/cca/dataDisseminationManager", "https://w3id.org/ro/terms/cca/relatedPublications", "http://xmlns.com/foaf/0.1/isPrimaryTopicOf"],
       "additionalProperties": true
     },
     "Campaign": {
       "title": "Campaign",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/ro/terms/cca/Campaign"
-        },
-        "https://schema.org/identifier": {
-          "type": "string",
-          "title": "identifier"
-        },
-        "https://w3id.org/ro/terms/cca/equipmentUsed": {
-          "type": "string",
-          "title": "equipment"
-        },
-        "https://schema.org/temporalCoverage": {
-          "type": "string",
-          "title": "deployment date"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/ro/terms/cca/Campaign" },
+        "https://schema.org/identifier": { "type": "string", "title": "identifier" },
+        "https://w3id.org/ro/terms/cca/equipmentUsed": { "type": "string", "title": "equipment" },
+        "https://schema.org/temporalCoverage": { "type": "string", "title": "deployment date" },
         "https://schema.org/spatialCoverage": {
-          "type": "string",
-          "title": "geographic coverage",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Place" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Place" }
+          ],
+          "title": "geographic coverage"
         },
         "http://www.w3.org/ns/sosa/madeBySensor": {
-          "type": "string",
-          "title": "sensors",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://www.w3.org/ns/sosa/Sensor" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Sensor" }
+          ],
+          "title": "sensors"
         },
         "http://www.w3.org/ns/sosa/usedProcedure": {
-          "type": "string",
-          "title": "measurement level",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://www.w3.org/ns/sosa/Procedure" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Procedure" }
+          ],
+          "title": "measurement level"
         },
-        "https://schema.org/frequency": {
-          "type": "string",
-          "title": "acquisition frequency"
-        },
+        "https://schema.org/frequency": { "type": "string", "title": "acquisition frequency" },
         "http://www.w3.org/ns/sosa/observedProperty": {
-          "type": "string",
-          "title": "parameters",
-          "format": "uri"
+          "type": "object",
+          "required": ["@id"],
+          "properties": {
+            "@id": { "type": "string" }
+          },
+          "additionalProperties": true,
+          "title": "parameters"
         },
-        "https://schema.org/unitCode": {
-          "type": "string",
-          "title": "unit"
-        },
-        "https://schema.org/contentType": {
-          "type": "string",
-          "title": "data type"
-        },
-        "http://www.w3.org/ns/dcat#mediaType": {
-          "type": "string",
-          "title": "format / Access Software"
-        },
-        "http://www.w3.org/ns/dcat#size": {
-          "type": "string",
-          "title": "volumes"
-        },
+        "https://schema.org/unitCode": { "type": "string", "title": "unit" },
+        "https://schema.org/contentType": { "type": "string", "title": "data type" },
+        "http://www.w3.org/ns/dcat#mediaType": { "type": "string", "title": "format / Access Software" },
+        "http://www.w3.org/ns/dcat#size": { "type": "string", "title": "volumes" },
         "http://purl.org/dc/terms/conformsTo": {
-          "type": "string",
-          "title": "metadata",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://purl.org/dc/terms/Standard" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Standard" }
+          ],
+          "title": "metadata"
         },
-        "http://purl.org/dc/terms/format": {
-          "type": "string",
-          "title": "format"
-        },
-        "https://w3id.org/dcso/ns/core#dataQualityAssurance": {
-          "type": "string",
-          "title": "quality control measures"
-        },
+        "http://purl.org/dc/terms/format": { "type": "string", "title": "format" },
+        "https://w3id.org/dcso/ns/core#dataQualityAssurance": { "type": "string", "title": "quality control measures" },
         "https://w3id.org/dpv#hasTechnicalOrganisationalMeasure": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/dpv#TechnicalOrganisationalMeasure" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/TechnicalOrganisationalMeasure" }
+          ],
           "title": "storage mode"
         },
-        "http://purl.org/ontology/bibo/doi": {
-          "type": "string",
-          "title": "DOI"
-        },
-        "https://w3id.org/ro/terms/cca/equipmentFailure": {
-          "type": "string",
-          "title": "equipment failure"
-        },
+        "http://purl.org/ontology/bibo/doi": { "type": "string", "title": "DOI" },
+        "https://w3id.org/ro/terms/cca/equipmentFailure": { "type": "string", "title": "equipment failure" },
         "https://w3id.org/dpv/tech#hasModel": {
-          "type": "string",
-          "title": "has model",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/dpv/tech#Model" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Model" }
+          ],
+          "title": "has model"
         },
         "https://w3id.org/ro/terms/cca/hasSatellite": {
-          "type": "string",
-          "title": "has satellite",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/ro/terms/cca/Satellite" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Satellite" }
+          ],
+          "title": "has satellite"
         },
         "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": {
-          "type": "string",
-          "title": "has document metadata",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://xmlns.com/foaf/0.1/Document" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Documentmetadata" }
+          ],
+          "title": "has document metadata"
         }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Model": {
       "title": "Model",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv/tech#Model"
-        },
-        "http://purl.org/dc/terms/type": {
-          "type": "string",
-          "title": "model / neural network"
-        },
-        "https://w3id.org/ro/terms/cca/climateConsidered": {
-          "type": "string",
-          "title": "climate considered"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv/tech#Model" },
+        "http://purl.org/dc/terms/type": { "type": "string", "title": "model / neural network" },
+        "https://w3id.org/ro/terms/cca/climateConsidered": { "type": "string", "title": "climate considered" },
         "https://w3id.org/dpv/tech#hasInputData": {
-          "type": "string",
-          "title": "input data",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Dataset" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Dataset" }
+          ],
+          "title": "input data"
         },
-        "https://w3id.org/ro/terms/cca/modelFailure": {
-          "type": "string",
-          "title": "model failures"
-        }
+        "https://w3id.org/ro/terms/cca/modelFailure": { "type": "string", "title": "model failures" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Satellite": {
       "title": "Satellite",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/ro/terms/cca/Satellite"
-        },
-        "https://w3id.org/ro/terms/cca/hasMission": {
-          "type": "string",
-          "title": "campaign or satellite Mission"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/ro/terms/cca/Satellite" },
+        "https://w3id.org/ro/terms/cca/hasMission": { "type": "string", "title": "campaign or satellite Mission" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Documentmetadata": {
       "title": "Document metadata",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://xmlns.com/foaf/0.1/Document"
-        },
-        "http://purl.org/dc/terms/type": {
-          "type": "string",
-          "title": "document type"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "http://xmlns.com/foaf/0.1/Document" },
+        "http://purl.org/dc/terms/type": { "type": "string", "title": "document type" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Dataset": {
       "title": "Dataset",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/Dataset"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        },
-        "https://schema.org/identifier": {
-          "type": "string",
-          "title": "identifier"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/Dataset" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" },
+        "https://schema.org/identifier": { "type": "string", "title": "identifier" },
         "https://w3id.org/citedcat-ap/dataCollector": {
-          "type": "string",
           "title": "data creation manager",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Person" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Person" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/Organisation" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/Organisation" }
+              ]
+            }
+          ]
         },
-        "http://purl.org/dc/terms/type": {
-          "type": "string",
-          "title": "type"
-        },
-        "http://purl.org/dc/terms/source": {
-          "type": "string",
-          "title": "origin"
-        },
-        "https://w3id.org/ro/terms/cca/dataNature": {
-          "type": "string",
-          "title": "nature"
-        },
-        "https://w3id.org/ro/terms/cca/stability": {
-          "type": "string",
-          "title": "stability"
-        },
+        "http://purl.org/dc/terms/type": { "type": "string", "title": "type" },
+        "http://purl.org/dc/terms/source": { "type": "string", "title": "origin" },
+        "https://w3id.org/ro/terms/cca/dataNature": { "type": "string", "title": "nature" },
+        "https://w3id.org/ro/terms/cca/stability": { "type": "string", "title": "stability" },
         "https://schema.org/spatialCoverage": {
-          "type": "string",
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Place" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Place" }
+          ],
           "title": "scale"
         },
         "https://schema.org/variableMeasured": {
-          "type": "string",
-          "title": "variables",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/iadopt/ont/Variable" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Variable" }
+          ],
+          "title": "variables"
         },
-        "https://w3id.org/ro/terms/cca/acquisitionMethod": {
-          "type": "string",
-          "title": "acquisition method"
-        },
-        "https://w3id.org/ro/terms/cca/acquisitionFrequency": {
-          "type": "string",
-          "title": "acquisition frequency"
-        },
-        "https://w3id.org/ro/terms/cca/surveyAutomation": {
-          "type": "string",
-          "title": "survey automation"
-        },
+        "https://w3id.org/ro/terms/cca/acquisitionMethod": { "type": "string", "title": "acquisition method" },
+        "https://w3id.org/ro/terms/cca/acquisitionFrequency": { "type": "string", "title": "acquisition frequency" },
+        "https://w3id.org/ro/terms/cca/surveyAutomation": { "type": "string", "title": "survey automation" },
         "http://purl.org/dc/terms/conformsTo": {
-          "type": "string",
-          "title": "standard application",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "http://purl.org/dc/terms/Standard" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Standard" }
+          ],
+          "title": "standard application"
         },
         "https://w3id.org/dpv#hasSensitivityLevel": {
-          "type": "string",
-          "title": "sensitivity",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://w3id.org/dpv#SensitivityLevel" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/SensitivityLevel" }
+          ],
+          "title": "sensitivity"
         },
-        "https://w3id.org/ro/terms/cca/dataRecoveryDelay": {
-          "type": "string",
-          "title": "delay"
-        },
-        "http://www.w3.org/ns/dcat#byteSize": {
-          "type": "string",
-          "title": "volume"
-        },
-        "https://w3id.org/ro/terms/cca/validationApproach": {
-          "type": "string",
-          "title": "validation"
-        },
-        "https://w3id.org/ro/terms/cca/qualityApproach": {
-          "type": "string",
-          "title": "qualification"
-        },
-        "http://purl.org/dc/terms/format": {
-          "type": "string",
-          "title": "format"
-        },
-        "https://w3id.org/ro/terms/cca/stationsStudied": {
-          "type": "string",
-          "title": "site number"
-        },
-        "https://w3id.org/ro/terms/cca/datasetNumber": {
-          "type": "string",
-          "title": "dataset number"
-        }
+        "https://w3id.org/ro/terms/cca/dataRecoveryDelay": { "type": "string", "title": "delay" },
+        "http://www.w3.org/ns/dcat#byteSize": { "type": "string", "title": "volume" },
+        "https://w3id.org/ro/terms/cca/validationApproach": { "type": "string", "title": "validation" },
+        "https://w3id.org/ro/terms/cca/qualityApproach": { "type": "string", "title": "qualification" },
+        "http://purl.org/dc/terms/format": { "type": "string", "title": "format" },
+        "https://w3id.org/ro/terms/cca/stationsStudied": { "type": "string", "title": "site number" },
+        "https://w3id.org/ro/terms/cca/datasetNumber": { "type": "string", "title": "dataset number" }
       },
-      "required": [
-        "@id",
-        "@type",
-        "https://w3id.org/citedcat-ap/dataCollector",
-        "http://purl.org/dc/terms/source",
-        "https://w3id.org/ro/terms/cca/dataNature",
-        "https://schema.org/spatialCoverage",
-        "https://w3id.org/dpv#hasSensitivityLevel"
-      ],
+      "required": ["@id", "@type", "https://w3id.org/citedcat-ap/dataCollector", "http://purl.org/dc/terms/source", "https://w3id.org/ro/terms/cca/dataNature", "https://schema.org/spatialCoverage", "https://w3id.org/dpv#hasSensitivityLevel"],
       "additionalProperties": true
     },
     "Place": {
       "title": "Place",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/Place"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/Place" },
         "https://schema.org/geo": {
-          "type": "string",
           "title": "geo",
-          "format": "uri"
+          "oneOf": [
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/GeoCoordinate" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/GeoCoordinate" }
+              ]
+            },
+            {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": ["@id"],
+                  "properties": {
+                    "@id": { "type": "string" },
+                    "@type": { "const": "https://schema.org/GeoShape" }
+                  },
+                  "additionalProperties": true
+                },
+                { "$ref": "#/$defs/GeoShape" }
+              ]
+            }
+          ]
         },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/address": {
-          "type": "string",
-          "title": "address"
-        },
-        "https://schema.org/latitude": {
-          "type": "string",
-          "title": "latitude"
-        },
-        "https://schema.org/longitude": {
-          "type": "string",
-          "title": "longitude"
-        }
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/address": { "type": "string", "title": "address" },
+        "https://schema.org/latitude": { "type": "string", "title": "latitude" },
+        "https://schema.org/longitude": { "type": "string", "title": "longitude" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "GeoCoordinate": {
       "title": "GeoCoordinate",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/GeoCoordinate"
-        },
-        "https://schema.org/latitude": {
-          "type": "string",
-          "title": "latitude"
-        },
-        "https://schema.org/longitude": {
-          "type": "string",
-          "title": "longitude"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/GeoCoordinate" },
+        "https://schema.org/latitude": { "type": "string", "title": "latitude" },
+        "https://schema.org/longitude": { "type": "string", "title": "longitude" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "GeoShape": {
       "title": "GeoShape",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/GeoShape"
-        },
-        "https://schema.org/polygon": {
-          "type": "string",
-          "title": "polygon"
-        },
-        "https://schema.org/box": {
-          "type": "string",
-          "title": "box"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/GeoShape" },
+        "https://schema.org/polygon": { "type": "string", "title": "polygon" },
+        "https://schema.org/box": { "type": "string", "title": "box" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "ProvenanceStatement": {
       "title": "Provenance Statement",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://purl.org/dc/terms/ProvenanceStatement"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "http://purl.org/dc/terms/ProvenanceStatement" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Person": {
       "title": "Person",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/Person"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/Person" },
+        "https://schema.org/name": { "type": "string", "title": "name" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Organisation": {
       "title": "Organisation",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/Organisation"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/Organisation" },
+        "https://schema.org/name": { "type": "string", "title": "name" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Grant": {
       "title": "Grant",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/Grant"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/Grant" },
         "https://schema.org/funder": {
-          "type": "string",
-          "title": "funder",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Organisation" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Organisation" }
+          ],
+          "title": "funder"
         },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/url": {
-          "type": "string",
-          "title": "url"
-        },
-        "https://schema.org/identifier": {
-          "type": "string",
-          "title": "identifier"
-        }
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/url": { "type": "string", "title": "url" },
+        "https://schema.org/identifier": { "type": "string", "title": "identifier" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Standard": {
       "title": "Standard",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://purl.org/dc/terms/Standard"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "http://purl.org/dc/terms/Standard" },
+        "https://schema.org/name": { "type": "string", "title": "name" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "SensitivityLevel": {
       "title": "SensitivityLevel",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#SensitivityLevel"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#SensitivityLevel" },
+        "https://schema.org/name": { "type": "string", "title": "name" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "DisasterRecoveryProcedures": {
       "title": "DisasterRecoveryProcedures",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#DisasterRecoveryProcedures"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#DisasterRecoveryProcedures" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "AccessControlMethod": {
       "title": "AccessControlMethod",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#AccessControlMethod"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#AccessControlMethod" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "RightsStatement": {
       "title": "RightsStatement",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://purl.org/dc/terms/RightsStatement"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "http://purl.org/dc/terms/RightsStatement" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Catalog": {
       "title": "Catalog",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://www.w3.org/ns/dcat#Catalog"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        },
+        "@id": { "type": "string" },
+        "@type": { "const": "http://www.w3.org/ns/dcat#Catalog" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" },
         "https://w3id.org/citedcat-ap/hostingInstitution": {
-          "type": "string",
-          "title": "hostingInstitution",
-          "format": "uri"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["@id"],
+              "properties": {
+                "@id": { "type": "string" },
+                "@type": { "const": "https://schema.org/Organisation" }
+              },
+              "additionalProperties": true
+            },
+            { "$ref": "#/$defs/Organisation" }
+          ],
+          "title": "hostingInstitution"
         }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "DataService": {
       "title": "DataService",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://www.w3.org/ns/dcat#DataService"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        },
-        "http://www.w3.org/ns/dcat#endpointURL": {
-          "type": "string",
-          "title": "endpointURL"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "http://www.w3.org/ns/dcat#DataService" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" },
+        "http://www.w3.org/ns/dcat#endpointURL": { "type": "string", "title": "endpointURL" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Sensor": {
       "title": "Sensor",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://www.w3.org/ns/sosa/Sensor"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "http://www.w3.org/ns/sosa/Sensor" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "Procedure": {
       "title": "Procedure",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "http://www.w3.org/ns/sosa/Procedure"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "http://www.w3.org/ns/sosa/Procedure" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "TechnicalOrganisationalMeasure": {
       "title": "TechnicalOrganisationalMeasure",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://w3id.org/dpv#TechnicalOrganisationalMeasure"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://w3id.org/dpv#TechnicalOrganisationalMeasure" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     },
     "CreativeWork": {
       "title": "Creative Work",
       "type": "object",
       "properties": {
-        "@id": {
-          "type": "string"
-        },
-        "@type": {
-          "const": "https://schema.org/CreativeWork"
-        },
-        "https://schema.org/name": {
-          "type": "string",
-          "title": "name"
-        },
-        "https://schema.org/description": {
-          "type": "string",
-          "title": "description"
-        },
-        "https://schema.org/identifier": {
-          "type": "string",
-          "title": "identifier"
-        }
+        "@id": { "type": "string" },
+        "@type": { "const": "https://schema.org/CreativeWork" },
+        "https://schema.org/name": { "type": "string", "title": "name" },
+        "https://schema.org/description": { "type": "string", "title": "description" },
+        "https://schema.org/identifier": { "type": "string", "title": "identifier" }
       },
-      "required": [
-        "@id",
-        "@type"
-      ],
+      "required": ["@id", "@type"],
       "additionalProperties": true
     }
   }

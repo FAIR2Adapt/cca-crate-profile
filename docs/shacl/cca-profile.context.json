@@ -16,109 +16,43 @@
     "geodcat": "http://data.europa.eu/930/",
     "schema": "https://schema.org/",
     "cca": "https://w3id.org/ro/terms/cca/",
-    "isRelatedTo": {
-      "@id": "https://schema.org/isRelatedTo",
-      "@type": "@id"
-    },
-    "variableMeasured": {
-      "@id": "https://schema.org/variableMeasured",
-      "@type": "@id"
-    },
-    "publisher": {
-      "@id": "https://schema.org/publisher",
-      "@type": "@id"
-    },
-    "hasNetwork": {
-      "@id": "https://w3id.org/ro/terms/cca/hasNetwork",
-      "@type": "@id"
-    },
-    "hasCampaign": {
-      "@id": "https://w3id.org/ro/terms/cca/hasCampaign",
-      "@type": "@id"
-    },
-    "hasPart": {
-      "@id": "https://schema.org/hasPart",
-      "@type": "@id"
-    },
-    "https://schema.org/variableMeasured": {
-      "@id": "https://schema.org/variableMeasured",
-      "@type": "@id"
-    },
+    "isRelatedTo": { "@id": "https://schema.org/isRelatedTo", "@type": "@id" },
+    "variableMeasured": { "@id": "https://schema.org/variableMeasured", "@type": "@id" },
+    "publisher": { "@id": "https://schema.org/publisher", "@type": "@id" },
+    "hasNetwork": { "@id": "https://w3id.org/ro/terms/cca/hasNetwork", "@type": "@id" },
+    "hasCampaign": { "@id": "https://w3id.org/ro/terms/cca/hasCampaign", "@type": "@id" },
+    "hasPart": { "@id": "https://schema.org/hasPart", "@type": "@id" },
+    "https://schema.org/variableMeasured": { "@id": "https://schema.org/variableMeasured", "@type": "@id" },
     "depth": "https://schema.org/depth",
     "temporalCoverage": "https://schema.org/temporalCoverage",
-    "spatialCoverage": {
-      "@id": "https://schema.org/spatialCoverage",
-      "@type": "@id"
-    },
+    "spatialCoverage": { "@id": "https://schema.org/spatialCoverage", "@type": "@id" },
     "scenarioId": "https://w3id.org/ro/terms/cca/scenarioId",
     "spatialResolutionAsText": "http://data.europa.eu/930/spatialResolutionAsText",
-    "license": {
-      "@id": "https://schema.org/license",
-      "@type": "@id"
-    },
+    "license": { "@id": "https://schema.org/license", "@type": "@id" },
     "identifier": "https://schema.org/identifier",
-    "provenance": {
-      "@id": "http://purl.org/dc/terms/provenance",
-      "@type": "@id"
-    },
+    "provenance": { "@id": "http://purl.org/dc/terms/provenance", "@type": "@id" },
     "name": "https://schema.org/name",
     "url": "https://schema.org/url",
-    "dmp_id": {
-      "@id": "https://w3id.org/ro/terms/cca/dmp_id",
-      "@type": "@id"
-    },
+    "dmp_id": { "@id": "https://w3id.org/ro/terms/cca/dmp_id", "@type": "@id" },
     "expectedDeliverable": "https://w3id.org/ro/terms/cca/expectedDeliverable",
-    "reusedData": {
-      "@id": "https://w3id.org/ro/terms/cca/reusedData",
-      "@type": "@id"
-    },
+    "reusedData": { "@id": "https://w3id.org/ro/terms/cca/reusedData", "@type": "@id" },
     "generalWPProgram": "https://w3id.org/ro/terms/cca/generalWPProgram",
-    "networkManager": {
-      "@id": "https://w3id.org/ro/terms/cca/networkManager",
-      "@type": "@id"
-    },
+    "networkManager": { "@id": "https://w3id.org/ro/terms/cca/networkManager", "@type": "@id" },
     "https://schema.org/name": "https://schema.org/name",
-    "dataManager": {
-      "@id": "https://w3id.org/citedcat-ap/dataManager",
-      "@type": "@id"
-    },
-    "principalInvestigator": {
-      "@id": "http://data.europa.eu/930/principalInvestigator",
-      "@type": "@id"
-    },
-    "member": {
-      "@id": "https://schema.org/member",
-      "@type": "@id"
-    },
+    "dataManager": { "@id": "https://w3id.org/citedcat-ap/dataManager", "@type": "@id" },
+    "principalInvestigator": { "@id": "http://data.europa.eu/930/principalInvestigator", "@type": "@id" },
+    "member": { "@id": "https://schema.org/member", "@type": "@id" },
     "label": "http://www.w3.org/2000/01/rdf-schema#label",
     "IlicoIntegrationYear": "https://w3id.org/ro/terms/cca/IlicoIntegrationYear",
     "scientificIssues": "https://w3id.org/ro/terms/cca/scientificIssues",
-    "funding": {
-      "@id": "https://schema.org/funding",
-      "@type": "@id"
-    },
-    "funder": {
-      "@id": "https://schema.org/funder",
-      "@type": "@id"
-    },
+    "funding": { "@id": "https://schema.org/funding", "@type": "@id" },
+    "funder": { "@id": "https://schema.org/funder", "@type": "@id" },
     "averageNetworkCost": "https://w3id.org/ro/terms/cca/averageNetworkCost",
     "averageDataCost": "https://w3id.org/ro/terms/cca/averageDataCost",
-    "dataset": {
-      "@id": "https://schema.org/dataset",
-      "@type": "@id"
-    },
-    "hasProcessing": {
-      "@id": "https://w3id.org/dpv#hasProcessing",
-      "@type": "@id"
-    },
-    "https://w3id.org/dpv#hasProcessing": {
-      "@id": "https://w3id.org/dpv#hasProcessing",
-      "@type": "@id"
-    },
-    "processingManager": {
-      "@id": "https://w3id.org/ro/terms/cca/processingManager",
-      "@type": "@id"
-    },
+    "dataset": { "@id": "https://schema.org/dataset", "@type": "@id" },
+    "hasProcessing": { "@id": "https://w3id.org/dpv#hasProcessing", "@type": "@id" },
+    "https://w3id.org/dpv#hasProcessing": { "@id": "https://w3id.org/dpv#hasProcessing", "@type": "@id" },
+    "processingManager": { "@id": "https://w3id.org/ro/terms/cca/processingManager", "@type": "@id" },
     "processingAutomation": "https://w3id.org/ro/terms/cca/processingAutomation",
     "processingMethod": "https://w3id.org/ro/terms/cca/processingMethod",
     "processingTime": "https://schema.org/processingTime",
@@ -131,133 +65,67 @@
     "postAnalysisLevel": "https://w3id.org/ro/terms/cca/postAnalysisLevel",
     "hasProductNames": "https://w3id.org/ro/terms/cca/hasProductNames",
     "https://w3id.org/ro/terms/cca/reusedData": "https://w3id.org/ro/terms/cca/reusedData",
-    "conservationManager": {
-      "@id": "https://w3id.org/ro/terms/cca/conservationManager",
-      "@type": "@id"
-    },
+    "conservationManager": { "@id": "https://w3id.org/ro/terms/cca/conservationManager", "@type": "@id" },
     "type": "http://purl.org/dc/terms/type",
     "procedure": "https://schema.org/procedure",
     "dataSelectionMethod": "https://w3id.org/ro/terms/cca/dataSelectionMethod",
     "fileNamingConvention": "https://w3id.org/ro/terms/cca/fileNamingConvention",
     "supportType": "https://w3id.org/ro/terms/cca/supportType",
-    "location": {
-      "@id": "https://schema.org/location",
-      "@type": "@id"
-    },
+    "location": { "@id": "https://schema.org/location", "@type": "@id" },
     "duration": "https://schema.org/duration",
-    "hasOrganisationalMeasure": {
-      "@id": "https://w3id.org/dpv#hasOrganisationalMeasure",
-      "@type": "@id"
-    },
-    "hasTechnicalMeasure": {
-      "@id": "https://w3id.org/dpv#hasTechnicalMeasure",
-      "@type": "@id"
-    },
-    "dataAccessManager": {
-      "@id": "https://w3id.org/ro/terms/cca/dataAccessManager",
-      "@type": "@id"
-    },
-    "accessRights": {
-      "@id": "http://purl.org/dc/terms/accessRights",
-      "@type": "@id"
-    },
+    "hasOrganisationalMeasure": { "@id": "https://w3id.org/dpv#hasOrganisationalMeasure", "@type": "@id" },
+    "hasTechnicalMeasure": { "@id": "https://w3id.org/dpv#hasTechnicalMeasure", "@type": "@id" },
+    "dataAccessManager": { "@id": "https://w3id.org/ro/terms/cca/dataAccessManager", "@type": "@id" },
+    "accessRights": { "@id": "http://purl.org/dc/terms/accessRights", "@type": "@id" },
     "https://schema.org/procedure": "https://schema.org/procedure",
     "hasEmbargoDuration": "http://purl.org/spar/fabio/hasEmbargoDuration",
     "databaseAvailability": "https://w3id.org/ro/terms/cca/databaseAvailability",
     "catalog": "http://www.w3.org/ns/dcat#catalog",
-    "conformsTo": {
-      "@id": "http://purl.org/dc/terms/conformsTo",
-      "@type": "@id"
-    },
-    "accessService": {
-      "@id": "http://www.w3.org/ns/dcat#accessService",
-      "@type": "@id"
-    },
+    "conformsTo": { "@id": "http://purl.org/dc/terms/conformsTo", "@type": "@id" },
+    "accessService": { "@id": "http://www.w3.org/ns/dcat#accessService", "@type": "@id" },
     "versionNotes": "http://www.w3.org/ns/adms#versionNotes",
-    "dataDisseminationManager": {
-      "@id": "https://w3id.org/ro/terms/cca/dataDisseminationManager",
-      "@type": "@id"
-    },
+    "dataDisseminationManager": { "@id": "https://w3id.org/ro/terms/cca/dataDisseminationManager", "@type": "@id" },
     "https://schema.org/identifier": "https://schema.org/identifier",
     "integrityMethods": "https://w3id.org/ro/terms/cca/integrityMethods",
     "traceabilityMethods": "https://w3id.org/ro/terms/cca/traceabilityMethods",
-    "https://schema.org/license": {
-      "@id": "https://schema.org/license",
-      "@type": "@id"
-    },
+    "https://schema.org/license": { "@id": "https://schema.org/license", "@type": "@id" },
     "relatedPublications": "https://w3id.org/ro/terms/cca/relatedPublications",
-    "isPrimaryTopicOf": {
-      "@id": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf",
-      "@type": "@id"
-    },
-    "documentation": {
-      "@id": "https://schema.org/documentation",
-      "@type": "@id"
-    },
+    "isPrimaryTopicOf": { "@id": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf", "@type": "@id" },
+    "documentation": { "@id": "https://schema.org/documentation", "@type": "@id" },
     "equipmentUsed": "https://w3id.org/ro/terms/cca/equipmentUsed",
     "https://schema.org/temporalCoverage": "https://schema.org/temporalCoverage",
-    "https://schema.org/spatialCoverage": "https://schema.org/spatialCoverage",
-    "madeBySensor": {
-      "@id": "http://www.w3.org/ns/sosa/madeBySensor",
-      "@type": "@id"
-    },
-    "usedProcedure": {
-      "@id": "http://www.w3.org/ns/sosa/usedProcedure",
-      "@type": "@id"
-    },
+    "https://schema.org/spatialCoverage": { "@id": "https://schema.org/spatialCoverage", "@type": "@id" },
+    "madeBySensor": { "@id": "http://www.w3.org/ns/sosa/madeBySensor", "@type": "@id" },
+    "usedProcedure": { "@id": "http://www.w3.org/ns/sosa/usedProcedure", "@type": "@id" },
     "frequency": "https://schema.org/frequency",
-    "observedProperty": {
-      "@id": "http://www.w3.org/ns/sosa/observedProperty",
-      "@type": "@id"
-    },
+    "observedProperty": { "@id": "http://www.w3.org/ns/sosa/observedProperty", "@type": "@id" },
     "unitCode": "https://schema.org/unitCode",
     "contentType": "https://schema.org/contentType",
     "mediaType": "http://www.w3.org/ns/dcat#mediaType",
     "size": "http://www.w3.org/ns/dcat#size",
-    "http://purl.org/dc/terms/conformsTo": {
-      "@id": "http://purl.org/dc/terms/conformsTo",
-      "@type": "@id"
-    },
+    "http://purl.org/dc/terms/conformsTo": { "@id": "http://purl.org/dc/terms/conformsTo", "@type": "@id" },
     "format": "http://purl.org/dc/terms/format",
     "dataQualityAssurance": "https://w3id.org/dcso/ns/core#dataQualityAssurance",
-    "hasTechnicalOrganisationalMeasure": "https://w3id.org/dpv#hasTechnicalOrganisationalMeasure",
+    "hasTechnicalOrganisationalMeasure": { "@id": "https://w3id.org/dpv#hasTechnicalOrganisationalMeasure", "@type": "@id" },
     "doi": "http://purl.org/ontology/bibo/doi",
     "equipmentFailure": "https://w3id.org/ro/terms/cca/equipmentFailure",
-    "hasModel": {
-      "@id": "https://w3id.org/dpv/tech#hasModel",
-      "@type": "@id"
-    },
-    "hasSatellite": {
-      "@id": "https://w3id.org/ro/terms/cca/hasSatellite",
-      "@type": "@id"
-    },
-    "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": {
-      "@id": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf",
-      "@type": "@id"
-    },
+    "hasModel": { "@id": "https://w3id.org/dpv/tech#hasModel", "@type": "@id" },
+    "hasSatellite": { "@id": "https://w3id.org/ro/terms/cca/hasSatellite", "@type": "@id" },
+    "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": { "@id": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf", "@type": "@id" },
     "http://purl.org/dc/terms/type": "http://purl.org/dc/terms/type",
     "climateConsidered": "https://w3id.org/ro/terms/cca/climateConsidered",
-    "hasInputData": {
-      "@id": "https://w3id.org/dpv/tech#hasInputData",
-      "@type": "@id"
-    },
+    "hasInputData": { "@id": "https://w3id.org/dpv/tech#hasInputData", "@type": "@id" },
     "modelFailure": "https://w3id.org/ro/terms/cca/modelFailure",
     "hasMission": "https://w3id.org/ro/terms/cca/hasMission",
     "https://schema.org/description": "https://schema.org/description",
-    "dataCollector": {
-      "@id": "https://w3id.org/citedcat-ap/dataCollector",
-      "@type": "@id"
-    },
+    "dataCollector": { "@id": "https://w3id.org/citedcat-ap/dataCollector", "@type": "@id" },
     "source": "http://purl.org/dc/terms/source",
     "dataNature": "https://w3id.org/ro/terms/cca/dataNature",
     "stability": "https://w3id.org/ro/terms/cca/stability",
     "acquisitionMethod": "https://w3id.org/ro/terms/cca/acquisitionMethod",
     "acquisitionFrequency": "https://w3id.org/ro/terms/cca/acquisitionFrequency",
     "surveyAutomation": "https://w3id.org/ro/terms/cca/surveyAutomation",
-    "hasSensitivityLevel": {
-      "@id": "https://w3id.org/dpv#hasSensitivityLevel",
-      "@type": "@id"
-    },
+    "hasSensitivityLevel": { "@id": "https://w3id.org/dpv#hasSensitivityLevel", "@type": "@id" },
     "dataRecoveryDelay": "https://w3id.org/ro/terms/cca/dataRecoveryDelay",
     "byteSize": "http://www.w3.org/ns/dcat#byteSize",
     "validationApproach": "https://w3id.org/ro/terms/cca/validationApproach",
@@ -265,10 +133,7 @@
     "http://purl.org/dc/terms/format": "http://purl.org/dc/terms/format",
     "stationsStudied": "https://w3id.org/ro/terms/cca/stationsStudied",
     "datasetNumber": "https://w3id.org/ro/terms/cca/datasetNumber",
-    "geo": {
-      "@id": "https://schema.org/geo",
-      "@type": "@id"
-    },
+    "geo": { "@id": "https://schema.org/geo", "@type": "@id" },
     "address": "https://schema.org/address",
     "latitude": "https://schema.org/latitude",
     "longitude": "https://schema.org/longitude",
@@ -276,15 +141,9 @@
     "https://schema.org/longitude": "https://schema.org/longitude",
     "polygon": "https://schema.org/polygon",
     "box": "https://schema.org/box",
-    "https://schema.org/funder": {
-      "@id": "https://schema.org/funder",
-      "@type": "@id"
-    },
+    "https://schema.org/funder": { "@id": "https://schema.org/funder", "@type": "@id" },
     "https://schema.org/url": "https://schema.org/url",
-    "hostingInstitution": {
-      "@id": "https://w3id.org/citedcat-ap/hostingInstitution",
-      "@type": "@id"
-    },
+    "hostingInstitution": { "@id": "https://w3id.org/citedcat-ap/hostingInstitution", "@type": "@id" },
     "endpointURL": "http://www.w3.org/ns/dcat#endpointURL"
   }
 }
