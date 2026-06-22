@@ -8,6 +8,7 @@
   {
   "@context": [
     "https://w3id.org/ro/crate/1.2/context",
+    "https://w3id.org/cca-crate-profile/0.9/context",
     {
       "cca": "https://w3id.org/ro/terms/cca/"
     }
@@ -17,7 +18,7 @@
       "@id": "ro-crate-metadata.json",
       "@type": "CreativeWork",
       "about": {
-        "@id": "https://w3id.org/cc-crate-profile/0.9"
+        "@id": "https://w3id.org/cca-crate-profile/0.9"
       },
       "conformsTo": {
         "@id": "https://w3id.org/ro/crate/1.2"
@@ -29,11 +30,11 @@
       "@id": "ro-crate-preview.html",
       "@type": "CreativeWork",    
       "about": {
-        "@id": "https://w3id.org/cc-crate-profile/0.9"
+        "@id": "https://w3id.org/cca-crate-profile/0.9"
       }
     },
     {
-      "@id": "https://w3id.org/cc-crate-profile/0.9",
+      "@id": "https://w3id.org/cca-crate-profile/0.9",
       "@type": [
         "Dataset",
         "Profile"
@@ -101,7 +102,19 @@
         },
         {
           "@id": "https://w3id.org/ro/terms/cca/"
-        }
+        },
+        {
+          "@id": "https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl"
+        },
+        {
+          "@id": "https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json"
+        },
+        {
+          "@id": "https://w3id.org/ro/crate/1.2/context"
+        },
+        {
+          "@id": "https://w3id.org/cca-crate-profile/0.9/context"
+        }          
       ],
       "hasResource": [
         {
@@ -154,6 +167,12 @@
         },
         {
           "@id": "#vocab-cca"
+        },
+        {
+          "@id": "#hasSHACL"
+        },
+        {
+          "@id": "#hasJSONSchema" 
         }
       ],
       "publisher": {
@@ -171,7 +190,7 @@
       },
       "inLanguage": "en",
       "about": {
-        "@id": "https://w3id.org/cc-crate-profile/0.9"
+        "@id": "https://w3id.org/cca-crate-profile/0.9"
       }
     },
     {
@@ -434,7 +453,6 @@
         "@id": "https://w3id.org/ro/terms/cca/"
       }
     },
-
     {
       "@id": "https://w3id.org/ro/terms/cca/",
       "@type": "DefinedTermSet",
@@ -503,6 +521,66 @@
         { "@id": "https://w3id.org/ro/terms/cca/hasSatellite" },
         { "@id": "https://w3id.org/ro/terms/cca/hasMission" }
       ]
+    },
+    {
+      "@id": "#hasSHACL",
+      "@type": "ResourceDescriptor",      
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/validation"
+      },
+      "hasArtifact": {
+        "@id": "https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl"
+      }
+    },
+    {
+      "@id": "https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl",
+      "@type": "File",
+      "name": "CCA RO-Crate Profile SHACL",      
+      "encodingFormat": "text/turtle",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }      
+    },
+    {
+      "@id": "#hasJSONSchema",
+      "@type": "ResourceDescriptor",      
+      "hasRole": {
+        "@id": "http://www.w3.org/ns/dx/prof/role/schema"
+      },
+      "hasArtifact": {
+        "@id": "https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json"
+      }
+    },
+    {
+      "@id": "https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json",
+      "@type": "File",
+      "name": "CCA RO-Crate Profile JSON Schema",      
+      "encodingFormat": "application/schema+json",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }      
+    },
+    {
+      "@id": "https://w3id.org/ro/crate/1.2/context",
+      "@type": "CreativeWork",
+      "name": "RO-Crate JSON-LD Context",
+      "encodingFormat": "application/ld+json",
+      "conformsTo": {"@id": "http://www.w3.org/ns/json-ld#Context"},
+      "version": "1.2.0"
+    },
+    {
+      "@id": "https://w3id.org/cca-crate-profile/0.9/context",
+      "@type": "CreativeWork",
+      "name": "CCA RO-Crate Profile JSON-LD Context",
+      "encodingFormat": "application/ld+json",
+      "conformsTo": {"@id": "http://www.w3.org/ns/json-ld#Context"},
+      "version": "0.9"
+    },
+    {
+      "@id": "http://www.w3.org/ns/json-ld#Context",
+      "@type": "DefinedTerm",
+      "name": "JSON-LD Context",
+      "url": "https://www.w3.org/TR/json-ld/"
     },
 
     {
@@ -1587,6 +1665,14 @@ table.table {
                         <li><a href="#https%3A//schema.org/">Schema.org vocabulary</a></li>
                         
                         <li><a href="#https%3A//w3id.org/ro/terms/cca/">RO Terms: CCA extension vocabulary</a></li>
+                        
+                        <li><a href="#https%3A//raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl">CCA RO-Crate Profile SHACL</a></li>
+
+                        <li><a href="#https%3A//raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json">CCA RO-Crate Profile JSON Schema</a></li>
+
+                        <li><a href="#https%3A//w3id.org/ro/crate/1.2/context">RO-Crate JSON-LD Context</a></li>
+
+                        <li><a href="#https%3A//w3id.org/cca-crate-profile/0.9/context">CCA RO-Crate Profile JSON-LD Context</a></li>
                         </ul></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">hasResource</th>
@@ -1624,6 +1710,10 @@ table.table {
                         <li><a href="#%23vocab-schema">#vocab-schema</a></li>
                         
                         <li><a href="#%23vocab-cca">#vocab-cca</a></li>
+
+                        <li><a href="#%23hasSHACL">#hasSHACL</a></li>
+
+                        <li><a href="#%23hasJSONSchema">#hasJSONSchema</a></li>
                         </ul></td>
             </tr><tr>
             <th style="text-align:left;" class="prop">publisher</th>
@@ -2908,6 +2998,204 @@ table.table {
             </tr><tr>
             <th style="text-align:left;" class="prop">hasArtifact</th>
             <td style='text-align:left'><a href="#https%3A//w3id.org/ro/terms/cca/">RO Terms: CCA extension vocabulary</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasResource</th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/cc-crate-profile/0.9">Climate Change Adaptation RO-Crate Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3><a href="https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl">Go to: </a> CCA RO-Crate Profile SHACL</h3>
+                
+                
+                
+                
+        <div id="https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl">https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name</th>
+            <td style='text-align:left'><span>CCA RO-Crate Profile SHACL</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>File</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">encodingFormat</th>
+            <td style='text-align:left'><span>text/turtle</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">license</th>
+            <td style='text-align:left'><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart</th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/cc-crate-profile/0.9">Climate Change Adaptation RO-Crate Profile</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact</th>
+            <td style='text-align:left'><a href="#%23hasSHACL">#hasSHACL</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3><a href="https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json">Go to: </a> CCA RO-Crate Profile JSON Schema</h3>
+                
+                
+                
+                
+        <div id="https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json">https://raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name</th>
+            <td style='text-align:left'><span>CCA RO-Crate Profile JSON Schema</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>File</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">encodingFormat</th>
+            <td style='text-align:left'><span>application/schema+json</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">license</th>
+            <td style='text-align:left'><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart</th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/cc-crate-profile/0.9">Climate Change Adaptation RO-Crate Profile</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact</th>
+            <td style='text-align:left'><a href="#%23hasJSONSchema">#hasJSONSchema</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3><a href="https://w3id.org/ro/crate/1.2/context">Go to: </a> RO-Crate JSON-LD Context</h3>
+                
+                
+                
+                
+        <div id="https://w3id.org/ro/crate/1.2/context">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://w3id.org/ro/crate/1.2/context">https://w3id.org/ro/crate/1.2/context</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name</th>
+            <td style='text-align:left'><span>RO-Crate JSON-LD Context</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>CreativeWork</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">encodingFormat</th>
+            <td style='text-align:left'><span>application/ld+json</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">conformsTo</th>
+            <td style='text-align:left'><a href="#http%3A//www.w3.org/ns/json-ld%23Context">JSON-LD Context</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">version</th>
+            <td style='text-align:left'><span>1.2.0</span></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart</th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/cc-crate-profile/0.9">Climate Change Adaptation RO-Crate Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3><a href="https://w3id.org/cca-crate-profile/0.9/context">Go to: </a> CCA RO-Crate Profile JSON-LD Context</h3>
+                
+                
+                
+                
+        <div id="https://w3id.org/cca-crate-profile/0.9/context">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><a href="https://w3id.org/cca-crate-profile/0.9/context">https://w3id.org/cca-crate-profile/0.9/context</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">name</th>
+            <td style='text-align:left'><span>CCA RO-Crate Profile JSON-LD Context</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>CreativeWork</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">encodingFormat</th>
+            <td style='text-align:left'><span>application/ld+json</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">conformsTo</th>
+            <td style='text-align:left'><a href="#http%3A//www.w3.org/ns/json-ld%23Context">JSON-LD Context</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">version</th>
+            <td style='text-align:left'><span>0.9</span></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasPart</th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/cc-crate-profile/0.9">Climate Change Adaptation RO-Crate Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3> #hasSHACL</h3>
+                
+                
+                
+                
+        <div id="#hasSHACL">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>#hasSHACL</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>ResourceDescriptor</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasRole</th>
+            <td style='text-align:left'><a href="http://www.w3.org/ns/dx/prof/role/validation">http://www.w3.org/ns/dx/prof/role/validation</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact</th>
+            <td style='text-align:left'><a href="#https%3A//raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile-shacl.ttl">CCA RO-Crate Profile SHACL</a></td>
+            </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
+            <th style="text-align:left;" class="prop">hasResource</th>
+            <td style='text-align:left'><a href="#https%3A//w3id.org/cc-crate-profile/0.9">Climate Change Adaptation RO-Crate Profile</a></td>
+            </tr></tbody>
+            </table>
+        </div>
+            </div>
+        <hr/><br/><br/>
+            <div>
+                <h3> #hasJSONSchema</h3>
+                
+                
+                
+                
+        <div id="#hasJSONSchema">
+            
+            <table class="table metadata table-striped" >
+                <tbody><tr>
+            <th style="text-align:left;" class="prop">@id</th>
+            <td style='text-align:left'><span>#hasJSONSchema</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">@type</th>
+            <td style='text-align:left'><span>ResourceDescriptor</span></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasRole</th>
+            <td style='text-align:left'><a href="http://www.w3.org/ns/dx/prof/role/schema">http://www.w3.org/ns/dx/prof/role/schema</a></td>
+            </tr><tr>
+            <th style="text-align:left;" class="prop">hasArtifact</th>
+            <td style='text-align:left'><a href="#https%3A//raw.githubusercontent.com/FAIR2Adapt/cca-crate-profile/refs/heads/main/docs/shacl/cca-profile.schema.json">CCA RO-Crate Profile JSON Schema</a></td>
             </tr><tr><th colspan="2" style="text-align:center">Items that reference this one</th><tr><tr>
             <th style="text-align:left;" class="prop">hasResource</th>
             <td style='text-align:left'><a href="#https%3A//w3id.org/cc-crate-profile/0.9">Climate Change Adaptation RO-Crate Profile</a></td>
