@@ -1,0 +1,307 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix citedcat: <https://w3id.org/citedcat-ap/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcso: <https://w3id.org/dcso/ns/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix tech: <https://w3id.org/dpv/tech#> .
+@prefix geodcat: <http://data.europa.eu/930/> .
+@prefix schema: <https://schema.org/> .
+@prefix cca: <https://w3id.org/ro/terms/cca/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ccash: <https://w3id.org/ro/terms/cca/shapes/> .
+
+ccash:MvpShape a sh:NodeShape ;
+  sh:targetClass schema:Product ;
+  sh:name "MVP" ;
+  sh:property [ sh:path schema:variableMeasured ; sh:name "variable" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:depth ; sh:name "depth level" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:temporalCoverage ; sh:name "time range" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:spatialCoverage ; sh:name "spatial extent" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:scenarioId ; sh:name "scenario/run id" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path geodcat:spatialResolutionAsText ; sh:name "grid resolution" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:license ; sh:name "licence" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:identifier ; sh:name "version DOI" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path dct:provenance ; sh:name "provenance URL" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] .
+
+ccash:VariableShape a sh:NodeShape ;
+  sh:targetClass iadopt:Variable ;
+  sh:name "Variable" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:url ; sh:name "url" ; sh:nodeKind sh:Literal ] .
+
+ccash:ProjectShape a sh:NodeShape ;
+  sh:targetClass schema:Project ;
+  sh:name "Project" ;
+  sh:property [ sh:path cca:dmp_id ; sh:name "data management plan (DMP) reference" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path cca:expectedDeliverable ; sh:name "expected deliverables" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:reusedData ; sh:name "reused data" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path cca:generalWPProgram ; sh:name "general WP program" ; sh:nodeKind sh:Literal ] .
+
+ccash:NetworkShape a sh:NodeShape ;
+  sh:targetClass cca:Network ;
+  sh:name "Network" ;
+  sh:property [ sh:path cca:networkManager ; sh:name "network manager" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path citedcat:dataManager ; sh:name "data manager" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path geodcat:principalInvestigator ; sh:name "scientific coordination" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path schema:member ; sh:name "partners" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path rdfs:label ; sh:name "labelling" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:IlicoIntegrationYear ; sh:name "ILICO integration year" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:scientificIssues ; sh:name "scientific issues" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path [ sh:alternativePath ( schema:funding schema:funder ) ] ; sh:name "grants" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path cca:averageNetworkCost ; sh:name "network costs" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:averageDataCost ; sh:name "data costs" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:dataset ; sh:name "data creation/collection" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dpv:hasProcessing ; sh:name "has processing" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dpv:hasProcessing ; sh:name "has analysis" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dpv:hasProcessing ; sh:name "has conservation" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path dpv:hasProcessing ; sh:name "has access" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dpv:hasProcessing ; sh:name "has dissemination/reuse" ; sh:nodeKind sh:IRI ] .
+
+ccash:ProcessingShape a sh:NodeShape ;
+  sh:targetClass dpv:Processing ;
+  sh:name "Processing" ;
+  sh:property [ sh:path cca:processingManager ; sh:name "processing manager" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:processingAutomation ; sh:name "processing automation" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:processingMethod ; sh:name "processing method" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:processingTime ; sh:name "processing delay" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:preProcessingLevel ; sh:name "pre-processing level" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:AnalysisShape a sh:NodeShape ;
+  sh:targetClass dpv:Analyse ;
+  sh:name "Analysis" ;
+  sh:property [ sh:path cca:analysisAutomation ; sh:name "analysis automation" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:analysisMethod ; sh:name "analysis method" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:processingTime ; sh:name "analysis delay" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:preAnalysisLevel ; sh:name "pre-analysis level" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:postAnalysisLevel ; sh:name "post-analysis level" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:hasProductNames ; sh:name "products" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:reusedData ; sh:name "data reuse" ; sh:nodeKind sh:Literal ] .
+
+ccash:StoreShape a sh:NodeShape ;
+  sh:targetClass dpv:Store ;
+  sh:name "Store" ;
+  sh:property [ sh:path cca:conservationManager ; sh:name "conservation manager" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path dct:type ; sh:name "storage archiving" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:procedure ; sh:name "procedure" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:dataSelectionMethod ; sh:name "data selection" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:fileNamingConvention ; sh:name "convention" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:supportType ; sh:name "support" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:location ; sh:name "location" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:duration ; sh:name "conservation delay" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path dpv:hasOrganisationalMeasure ; sh:name "retrieval" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dpv:hasTechnicalMeasure ; sh:name "securing" ; sh:nodeKind sh:IRI ] .
+
+ccash:AccessShape a sh:NodeShape ;
+  sh:targetClass dpv:Access ;
+  sh:name "Access" ;
+  sh:property [ sh:path cca:dataAccessManager ; sh:name "access manager" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path dct:accessRights ; sh:name "dissemination principle" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:procedure ; sh:name "mechanism" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:processingTime ; sh:name "dissemination delay" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path fabio:hasEmbargoDuration ; sh:name "embargo period" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:databaseAvailability ; sh:name "database" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dcat:catalog ; sh:name "carrier organisation" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dct:conformsTo ; sh:name "data model" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dcat:accessService ; sh:name "management system" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path adms:versionNotes ; sh:name "history" ; sh:nodeKind sh:Literal ] .
+
+ccash:DisseminateShape a sh:NodeShape ;
+  sh:targetClass dpv:Disseminate ;
+  sh:name "Disseminate" ;
+  sh:property [ sh:path cca:dataDisseminationManager ; sh:name "dissemination manager" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:identifier ; sh:name "identifier" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:integrityMethods ; sh:name "integrity" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:traceabilityMethods ; sh:name "traceability" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:license ; sh:name "license" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path cca:relatedPublications ; sh:name "publication" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path foaf:isPrimaryTopicOf ; sh:name "metadata" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:documentation ; sh:name "intelligibility" ; sh:nodeKind sh:IRI ] .
+
+ccash:CampaignShape a sh:NodeShape ;
+  sh:targetClass cca:Campaign ;
+  sh:name "Campaign" ;
+  sh:property [ sh:path schema:identifier ; sh:name "identifier" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:equipmentUsed ; sh:name "equipment" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:temporalCoverage ; sh:name "deployment date" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:spatialCoverage ; sh:name "geographic coverage" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path sosa:madeBySensor ; sh:name "sensors" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path sosa:usedProcedure ; sh:name "measurement level" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path schema:frequency ; sh:name "acquisition frequency" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path sosa:observedProperty ; sh:name "parameters" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path schema:unitCode ; sh:name "unit" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:contentType ; sh:name "data type" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dcat:mediaType ; sh:name "format / Access Software" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dcat:size ; sh:name "volumes" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dct:conformsTo ; sh:name "metadata" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dct:format ; sh:name "format" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dcso:dataQualityAssurance ; sh:name "quality control measures" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dpv:hasTechnicalOrganisationalMeasure ; sh:name "storage mode" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path bibo:doi ; sh:name "DOI" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:equipmentFailure ; sh:name "equipment failure" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path tech:hasModel ; sh:name "has model" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path cca:hasSatellite ; sh:name "has satellite" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path foaf:isPrimaryTopicOf ; sh:name "has document metadata" ; sh:nodeKind sh:IRI ] .
+
+ccash:ModelShape a sh:NodeShape ;
+  sh:targetClass tech:Model ;
+  sh:name "Model" ;
+  sh:property [ sh:path dct:type ; sh:name "model / neural network" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:climateConsidered ; sh:name "climate considered" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path tech:hasInputData ; sh:name "input data" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path cca:modelFailure ; sh:name "model failures" ; sh:nodeKind sh:Literal ] .
+
+ccash:SatelliteShape a sh:NodeShape ;
+  sh:targetClass cca:Satellite ;
+  sh:name "Satellite" ;
+  sh:property [ sh:path cca:hasMission ; sh:name "campaign or satellite Mission" ; sh:nodeKind sh:Literal ] .
+
+ccash:DocumentMetadataShape a sh:NodeShape ;
+  sh:targetClass foaf:Document ;
+  sh:name "Document metadata" ;
+  sh:property [ sh:path dct:type ; sh:name "document type" ; sh:nodeKind sh:Literal ] .
+
+ccash:DatasetShape a sh:NodeShape ;
+  sh:targetClass schema:Dataset ;
+  sh:name "Dataset" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:identifier ; sh:name "identifier" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path citedcat:dataCollector ; sh:name "data creation manager" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path dct:type ; sh:name "type" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dct:source ; sh:name "origin" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:dataNature ; sh:name "nature" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:stability ; sh:name "stability" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:spatialCoverage ; sh:name "scale" ; sh:nodeKind sh:Literal ; sh:minCount 1 ] ;
+  sh:property [ sh:path schema:variableMeasured ; sh:name "variables" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path cca:acquisitionMethod ; sh:name "acquisition method" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:acquisitionFrequency ; sh:name "acquisition frequency" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:surveyAutomation ; sh:name "survey automation" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dct:conformsTo ; sh:name "standard application" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path dpv:hasSensitivityLevel ; sh:name "sensitivity" ; sh:nodeKind sh:IRI ; sh:minCount 1 ] ;
+  sh:property [ sh:path cca:dataRecoveryDelay ; sh:name "delay" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dcat:byteSize ; sh:name "volume" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:validationApproach ; sh:name "validation" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:qualityApproach ; sh:name "qualification" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dct:format ; sh:name "format" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:stationsStudied ; sh:name "site number" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path cca:datasetNumber ; sh:name "dataset number" ; sh:nodeKind sh:Literal ] .
+
+ccash:PlaceShape a sh:NodeShape ;
+  sh:targetClass schema:Place ;
+  sh:name "Place" ;
+  sh:property [ sh:path schema:geo ; sh:name "geo" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:address ; sh:name "address" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:latitude ; sh:name "latitude" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:longitude ; sh:name "longitude" ; sh:nodeKind sh:Literal ] .
+
+ccash:GeoCoordinateShape a sh:NodeShape ;
+  sh:targetClass schema:GeoCoordinate ;
+  sh:name "GeoCoordinate" ;
+  sh:property [ sh:path schema:latitude ; sh:name "latitude" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:longitude ; sh:name "longitude" ; sh:nodeKind sh:Literal ] .
+
+ccash:GeoShapeShape a sh:NodeShape ;
+  sh:targetClass schema:GeoShape ;
+  sh:name "GeoShape" ;
+  sh:property [ sh:path schema:polygon ; sh:name "polygon" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:box ; sh:name "box" ; sh:nodeKind sh:Literal ] .
+
+ccash:ProvenanceStatementShape a sh:NodeShape ;
+  sh:targetClass dct:ProvenanceStatement ;
+  sh:name "Provenance Statement" ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:PersonShape a sh:NodeShape ;
+  sh:targetClass schema:Person ;
+  sh:name "Person" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] .
+
+ccash:OrganisationShape a sh:NodeShape ;
+  sh:targetClass schema:Organisation ;
+  sh:name "Organisation" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] .
+
+ccash:GrantShape a sh:NodeShape ;
+  sh:targetClass schema:Grant ;
+  sh:name "Grant" ;
+  sh:property [ sh:path schema:funder ; sh:name "funder" ; sh:nodeKind sh:IRI ] ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:url ; sh:name "url" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:identifier ; sh:name "identifier" ; sh:nodeKind sh:Literal ] .
+
+ccash:StandardShape a sh:NodeShape ;
+  sh:targetClass dct:Standard ;
+  sh:name "Standard" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] .
+
+ccash:SensitivityLevelShape a sh:NodeShape ;
+  sh:targetClass dpv:SensitivityLevel ;
+  sh:name "SensitivityLevel" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] .
+
+ccash:DisasterRecoveryProceduresShape a sh:NodeShape ;
+  sh:targetClass dpv:DisasterRecoveryProcedures ;
+  sh:name "DisasterRecoveryProcedures" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:AccessControlMethodShape a sh:NodeShape ;
+  sh:targetClass dpv:AccessControlMethod ;
+  sh:name "AccessControlMethod" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:RightsStatementShape a sh:NodeShape ;
+  sh:targetClass dct:RightsStatement ;
+  sh:name "RightsStatement" ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:CatalogShape a sh:NodeShape ;
+  sh:targetClass dcat:Catalog ;
+  sh:name "Catalog" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path citedcat:hostingInstitution ; sh:name "hostingInstitution" ; sh:nodeKind sh:IRI ] .
+
+ccash:DataServiceShape a sh:NodeShape ;
+  sh:targetClass dcat:DataService ;
+  sh:name "DataService" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path dcat:endpointURL ; sh:name "endpointURL" ; sh:nodeKind sh:Literal ] .
+
+ccash:SensorShape a sh:NodeShape ;
+  sh:targetClass sosa:Sensor ;
+  sh:name "Sensor" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:ProcedureShape a sh:NodeShape ;
+  sh:targetClass sosa:Procedure ;
+  sh:name "Procedure" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:TechnicalOrganisationalMeasureShape a sh:NodeShape ;
+  sh:targetClass dpv:TechnicalOrganisationalMeasure ;
+  sh:name "TechnicalOrganisationalMeasure" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] .
+
+ccash:CreativeWorkShape a sh:NodeShape ;
+  sh:targetClass schema:CreativeWork ;
+  sh:name "Creative Work" ;
+  sh:property [ sh:path schema:name ; sh:name "name" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:description ; sh:name "description" ; sh:nodeKind sh:Literal ] ;
+  sh:property [ sh:path schema:identifier ; sh:name "identifier" ; sh:nodeKind sh:Literal ] .
