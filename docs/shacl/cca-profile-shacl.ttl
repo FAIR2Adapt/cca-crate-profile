@@ -17,6 +17,16 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix ccash: <https://w3id.org/ro/terms/cca/shapes/> .
 
+ccash:RootDataEntityLinkingShape a sh:NodeShape ;
+  sh:targetNode <./> ;
+  sh:name "RO-Crate Root Data Entity linking shape" ;
+  sh:property [ sh:path schema:isRelatedTo ; sh:name "Minimal Viable Product (MVP)" ; sh:description "Defines a relationship with a MVP contextual entity" ; sh:nodeKind sh:IRI ; sh:class schema:Product ] ;
+  sh:property [ sh:path schema:variableMeasured ; sh:name "Variable Measured" ; sh:description "Defines a relationship with a Variable contextual entity" ; sh:nodeKind sh:IRI ; sh:class iadopt:Variable ] ;
+  sh:property [ sh:path schema:publisher ; sh:name "Project" ; sh:description "Defines a relationship with a Project contextual entity" ; sh:nodeKind sh:IRI ; sh:class schema:Project ] ;
+  sh:property [ sh:path cca:hasNetwork ; sh:name "Network" ; sh:description "Defines a relationship with a Network contextual entity" ; sh:nodeKind sh:IRI ; sh:class cca:Network ] ;
+  sh:property [ sh:path cca:hasCampaign ; sh:name "Campaign" ; sh:description "Defines the relationship with the Campaign contextual entity" ; sh:nodeKind sh:IRI ; sh:class cca:Campaign ] ;
+  sh:property [ sh:path schema:hasPart ; sh:name "Dataset" ; sh:description "Aggregates a Dataset data entity in the RO-Crate" ; sh:nodeKind sh:IRI ; sh:class schema:Dataset ] .
+
 ccash:MvpShape a sh:NodeShape ;
   sh:targetClass schema:Product ;
   sh:name "MVP" ;
